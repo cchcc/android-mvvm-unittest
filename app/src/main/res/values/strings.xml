@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">android-mvvm-unittest</string>
+
+    <string name="e01_result_format">%s + %s = %s</string>
+</resources>
