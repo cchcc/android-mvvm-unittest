@@ -1,5 +1,6 @@
 package cchcc.learn.amu.e01
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -22,6 +23,10 @@ class E01Activity : AppCompatActivity() {
             it.host = this
             it.viewModel = viewModel
         }
+
+        val setInvisibleResult = Observer<String?> { viewModel.visibleResult.value = false }
+        viewModel.left.observe(this, setInvisibleResult)
+        viewModel.right.observe(this, setInvisibleResult)
     }
 
     fun onClickClear() {
