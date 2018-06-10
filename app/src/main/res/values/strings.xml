@@ -2,4 +2,6 @@
     <string name="app_name">android-mvvm-unittest</string>
 
     <string name="e01_result_format">%s + %s = %s</string>
+    <string name="e02_score_format">score : %d</string>
+
 </resources>

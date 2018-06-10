@@ -14,3 +14,14 @@ Simple [Data Binding](https://developer.android.com/topic/libraries/data-binding
 Two-way binding at EditText.
 
 Simple Unit Test with [Espresso](https://developer.android.com/training/testing/espresso/).
+
+
+## E02 - Simple Fragment with some animations
+
+Simple [Data Binding](https://developer.android.com/topic/libraries/data-binding/),
+[ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel),
+[LiveData](https://developer.android.com/topic/libraries/architecture/livedata) on an Fragment.
+
+Some animations with [lottie](http://airbnb.io/lottie/)(resources by [Eddy Gann](https://www.lottiefiles.com/ed117)).
+
+Custom binding attribute(onAnimationEnd) using [BindingAdapter](https://developer.android.com/topic/libraries/data-binding/binding-adapters#custom-logic).
