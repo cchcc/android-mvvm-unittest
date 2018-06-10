@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="host"
+            type="cchcc.learn.amu.e02.E02Fragment" />
+
+        <variable
+            name="viewModel"
+            type="cchcc.learn.amu.e02.E02ViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".e02.E02Fragment">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lav_state"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp"
+            app:lottie_rawRes="@raw/e02_failed"
+            app:lottie_loop="false"
+            app:lottie_autoPlay="false"
+            app:onAnimationEnd="@{() -> host.onAnimationEnd()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{@string/e02_score_format(viewModel.score)}"
+            tools:text="@string/e02_score_format"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lav_state" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/bt_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:text="clear"
+            android:textSize="20sp"
+            android:onClick="@{() -> host.onClickClear()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bt_try"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lav_state"
+            app:layout_constraintVertical_bias="0.15" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/bt_try"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:text="try"
+            android:textSize="20sp"
+            android:onClick="@{() -> host.onClickTry()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/bt_clear"
+            app:layout_constraintTop_toBottomOf="@+id/lav_state"
+            app:layout_constraintVertical_bias="0.15" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -28,6 +28,12 @@
                     android:onClick="@{() -> host.startE01()}"
                     android:text="E01 simple activity" />
 
+                <android.support.v7.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> host.startE02()}"
+                    android:text="E02 simple fragment" />
+
             </LinearLayout>
         </ScrollView>
 
