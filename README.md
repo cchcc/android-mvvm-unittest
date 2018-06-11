@@ -29,8 +29,8 @@ Custom binding attribute(onAnimationEnd) using
 
 For single Fragment android instrumented test,
 there is a dummy activity which only works on debug and test that implemented with
-[@RestrictTo](https://developer.android.com/reference/android/support/annotation/RestrictTo)
-and debug [Source set](https://developer.android.com/studio/build/build-variants#sourcesets).
+debug [Source set](https://developer.android.com/studio/build/build-variants#sourcesets) and
+[@RestrictTo](https://developer.android.com/reference/android/support/annotation/RestrictTo) annotation.
 
 For unit test, it needs to decouple the logic that getting boolean result from ViewModel.
 so [ViewModelProvider.Factory](https://developer.android.com/reference/android/arch/lifecycle/ViewModelProvider.Factory) is here.
