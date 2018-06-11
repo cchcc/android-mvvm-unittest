@@ -6,7 +6,7 @@ import android.support.test.espresso.matcher.ViewMatchers
 import android.view.View
 import org.hamcrest.Matcher
 
-class WaitingViewAction(val milliSec: Long) : ViewAction {
+class WaitingViewAction(private val milliSec: Long) : ViewAction {
     override fun getDescription(): String = "waiting $milliSec milli seconds"
 
     override fun getConstraints(): Matcher<View> = ViewMatchers.isRoot()
