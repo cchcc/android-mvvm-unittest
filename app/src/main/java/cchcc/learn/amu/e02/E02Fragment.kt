@@ -2,6 +2,7 @@ package cchcc.learn.amu.e02
 
 import android.animation.Animator
 import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.BindingAdapter
 import android.databinding.DataBindingUtil
@@ -15,10 +16,29 @@ import cchcc.learn.amu.R
 import cchcc.learn.amu.databinding.FragmentE02Binding
 import com.airbnb.lottie.LottieAnimationView
 import kotlinx.android.synthetic.main.fragment_e02.*
+import java.io.Serializable
 
 class E02Fragment : Fragment() {
 
-    private val viewModel: E02ViewModel by lazy { ViewModelProviders.of(this).get(E02ViewModel::class.java) }
+    private lateinit var viewModelFactory: () -> ViewModelProvider.Factory
+    private val viewModel: E02ViewModel by lazy { ViewModelProviders.of(this, viewModelFactory()).get(E02ViewModel::class.java) }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        @Suppress("UNCHECKED_CAST")
+        viewModelFactory = arguments?.getSerializable("factoryConstructor") as? () -> ViewModelProvider.Factory
+                ?: throw IllegalStateException("no ViewModelFactory for ${this::class.java.simpleName}")
+
+        viewModel.result.observe(this, Observer<E02ViewModel.TryResult> {
+            lav_result.setAnimation(when (it) {
+                E02ViewModel.TryResult.FAILED -> R.raw.e02_failed
+                E02ViewModel.TryResult.SUCCESS -> R.raw.e02_succes
+                else -> throw IllegalStateException()
+            })
+            lav_result.playAnimation()
+        })
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? =
@@ -28,47 +48,28 @@ class E02Fragment : Fragment() {
                 it.viewModel = viewModel
             }.root
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        viewModel.result.observe(this, Observer<E02ViewModel.TryResult> {
-            lav_state.setAnimation(when (it) {
-                E02ViewModel.TryResult.FAILED -> R.raw.e02_failed
-                E02ViewModel.TryResult.SUCCESS -> R.raw.e02_succes
-                else -> throw IllegalStateException()
-            })
-            lav_state.playAnimation()
-        })
-    }
-
     fun onClickTry() {
         viewModel.tryResult()
     }
 
     fun onAnimationEnd() {
-        val score = when (viewModel.result.value) {
-            E02ViewModel.TryResult.FAILED -> -1
-            E02ViewModel.TryResult.SUCCESS -> 1
-            else -> throw IllegalStateException()
-        }
-
-        viewModel.score.value = viewModel.score.value!! + score
+        viewModel.applyScore()
     }
 
     fun onClickClear() {
-        lav_state.cancelAnimation()
-        lav_state.progress = 0.0f
-        viewModel.score.value = 0
+        lav_result.cancelAnimation()
+        lav_result.progress = 0.0f
+        viewModel.clear()
     }
 
     companion object {
 
         @JvmStatic
-        fun newInstance() =
+        fun newInstance(factoryConstructor: () -> ViewModelProvider.Factory = ::E02ViewModelFactory) =
                 E02Fragment().apply {
-//                    arguments = Bundle().apply {
-//                        putString("key", param1)
-//                    }
+                    arguments = Bundle().apply {
+                        putSerializable("factoryConstructor", factoryConstructor as Serializable)
+                    }
                 }
     }
 }
