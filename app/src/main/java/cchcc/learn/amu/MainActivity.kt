@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import cchcc.learn.amu.databinding.ActivityMainBinding
 import cchcc.learn.amu.e01.E01Activity
 import cchcc.learn.amu.e02.E02Activity
+import cchcc.learn.amu.e02a.E02aActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,6 +24,10 @@ class MainActivity : AppCompatActivity() {
 
     fun startE02() {
         startActivity(Intent(this, E02Activity::class.java))
+    }
+
+    fun startE02a() {
+        startActivity(Intent(this, E02aActivity::class.java))
     }
 
 }

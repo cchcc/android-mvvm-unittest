@@ -34,3 +34,10 @@ debug [Source set](https://developer.android.com/studio/build/build-variants#sou
 
 For unit test, it needs to decouple the logic that getting boolean result from ViewModel([refactoring](https://github.com/cchcc/android-mvvm-unittest/commit/3b83f37ce5662f87718d206e403c75183f838b9c#diff-d4cb6e786555538509a8f26e58af0973)).
 so [ViewModelProvider.Factory](https://developer.android.com/reference/android/arch/lifecycle/ViewModelProvider.Factory) is here.
+
+
+## E02a - Simple Fragment with some animations and DI library
+
+Based on [E02](#e02-simple-fragment-with-some-animations).
+
+[Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) with [Kodein DI](http://kodein.org/Kodein-DI/) as a elegant way to decouple the logic.
