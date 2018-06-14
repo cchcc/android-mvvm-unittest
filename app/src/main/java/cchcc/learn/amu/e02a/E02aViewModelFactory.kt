@@ -13,7 +13,7 @@ class E02aViewModelFactory : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T = when (modelClass) {
-        E02aViewModel::class.java -> E02aViewModel(randomBooleanGenerator())
+        E02aViewModel::class.java -> E02aViewModel()
         else -> throw IllegalArgumentException("$modelClass is not registered ViewModel")
     } as T
 
