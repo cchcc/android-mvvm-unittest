@@ -14,16 +14,23 @@ import kotlinx.android.synthetic.main.fragment_e02a.*
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance
+import java.io.Serializable
 
 class E02aFragment : Fragment(), KodeinAware {
-    override val kodein = Kodein.lazy {
-        import(E02aFragmentModule)
-    }
+
+    // to getting kodein is usually done by closestKodein() that is declared dependencies from parent(Activity, Application) layer.
+    override lateinit var kodein: Kodein
 
     private val viewModel: E02aViewModel by instance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        @Suppress("UNCHECKED_CAST")
+        val createKodein = arguments?.getSerializable("createKodein") as? () -> Kodein
+            ?: throw IllegalStateException("no ViewModelFactory for ${this::class.java.simpleName}")
+
+        kodein = createKodein()
 
         viewModel.result.observe(this, Observer<E02aViewModel.TryResult> {
             lav_result.setAnimation(when (it) {
@@ -59,12 +66,19 @@ class E02aFragment : Fragment(), KodeinAware {
 
     companion object {
 
+        private val _createKodein: () -> Kodein by lazy {
+            {
+                Kodein.lazy { import(E02aFragmentModule) }
+            }
+        }
+
         @JvmStatic
-        fun newInstance() =
+        fun newInstance(createKodein: () -> Kodein = _createKodein) =
                 E02aFragment().apply {
                     arguments = Bundle().apply {
-
+                        putSerializable("createKodein", createKodein as Serializable)
                     }
                 }
     }
 }
+

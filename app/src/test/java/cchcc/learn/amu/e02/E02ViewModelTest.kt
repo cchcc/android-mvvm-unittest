@@ -10,12 +10,12 @@ class E02ViewModelTest {
     @JvmField
     val rule = InstantTaskExecutorRule()
 
-    private fun returnTrue() = true
+    private fun justTrue() = true
 
     @Test
     fun tryResult_and_applyScore() {
         // given
-        val viewModel = E02ViewModel(::returnTrue)
+        val viewModel = E02ViewModel(::justTrue)
 
         viewModel.tryResult() // when
         Assert.assertEquals(E02ViewModel.TryResult.SUCCESS, viewModel.result.value) // then

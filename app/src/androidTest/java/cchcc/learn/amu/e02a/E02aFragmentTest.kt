@@ -1,4 +1,4 @@
-package cchcc.learn.amu.e02
+package cchcc.learn.amu.e02a
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
@@ -13,6 +13,7 @@ import android.support.test.runner.AndroidJUnit4
 import android.view.View
 import cchcc.learn.amu.FragmentTestActivity
 import cchcc.learn.amu.R
+import cchcc.learn.amu.e02a.di.E02aTestFragmentModule
 import cchcc.learn.amu.util.WaitingViewAction
 import com.airbnb.lottie.LottieAnimationView
 import org.hamcrest.Matcher
@@ -21,26 +22,22 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.kodein.di.Kodein
 
 @RunWith(AndroidJUnit4::class)
-class E02FragmentTest {
+class E02aFragmentTest {
     @get:Rule
     val rule = object : ActivityTestRule<FragmentTestActivity>(FragmentTestActivity::class.java) {}
-
-    private fun justTrue() = true
 
     @Before
     fun setFragment() {
 
-        // given
-        val createVMFactory = {
-            object : ViewModelProvider.Factory {
-                @Suppress("UNCHECKED_CAST")
-                override fun <T : ViewModel?> create(modelClass: Class<T>): T = E02ViewModel(this@E02FragmentTest::justTrue) as T
-            }
+        val createKodein:() -> Kodein = {
+            Kodein.lazy { import(E02aTestFragmentModule) }
         }
 
-        rule.activity.replaceFragment(E02Fragment.newInstance(createVMFactory))
+        // given
+        rule.activity.replaceFragment(E02aFragment.newInstance(createKodein))
     }
 
 

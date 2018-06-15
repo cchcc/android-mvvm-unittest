@@ -2,17 +2,8 @@ package cchcc.learn.amu.e02a
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import cchcc.learn.amu.e02a.di.E02aViewModelModule
-import org.kodein.di.Kodein
-import org.kodein.di.KodeinAware
-import org.kodein.di.generic.instance
 
-class E02aViewModel : ViewModel(), KodeinAware {
-    override val kodein = Kodein.lazy {
-        import(E02aViewModelModule)
-    }
-
-    private val nextBoolean: () -> Boolean by instance()
+class E02aViewModel(private val nextBoolean: () -> Boolean) : ViewModel() {
 
     enum class TryResult { FAILED, SUCCESS }
 
