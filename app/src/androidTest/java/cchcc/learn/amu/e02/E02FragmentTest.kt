@@ -33,14 +33,14 @@ class E02FragmentTest {
     fun setFragment() {
 
         // given
-        val createFactory = {
+        val createVMFactory = {
             object : ViewModelProvider.Factory {
                 @Suppress("UNCHECKED_CAST")
                 override fun <T : ViewModel?> create(modelClass: Class<T>): T = E02ViewModel(this@E02FragmentTest::returnTrue) as T
             }
         }
 
-        rule.activity.replaceFragment(E02Fragment.newInstance(createFactory))
+        rule.activity.replaceFragment(E02Fragment.newInstance(createVMFactory))
     }
 
 

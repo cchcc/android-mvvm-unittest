@@ -20,14 +20,14 @@ import java.io.Serializable
 
 class E02Fragment : Fragment() {
 
-    private lateinit var viewModelFactory: () -> ViewModelProvider.Factory
-    private val viewModel: E02ViewModel by lazy { ViewModelProviders.of(this, viewModelFactory()).get(E02ViewModel::class.java) }
+    private lateinit var createVMFactory: () -> ViewModelProvider.Factory
+    private val viewModel: E02ViewModel by lazy { ViewModelProviders.of(this, createVMFactory()).get(E02ViewModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         @Suppress("UNCHECKED_CAST")
-        viewModelFactory = arguments?.getSerializable("factoryConstructor") as? () -> ViewModelProvider.Factory
+        createVMFactory = arguments?.getSerializable("createVMFactory") as? () -> ViewModelProvider.Factory
                 ?: throw IllegalStateException("no ViewModelFactory for ${this::class.java.simpleName}")
 
         viewModel.result.observe(this, Observer<E02ViewModel.TryResult> {
@@ -65,10 +65,10 @@ class E02Fragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance(factoryConstructor: () -> ViewModelProvider.Factory = ::E02ViewModelFactory) =
+        fun newInstance(createVMFactory: () -> ViewModelProvider.Factory = ::E02ViewModelFactory) =
                 E02Fragment().apply {
                     arguments = Bundle().apply {
-                        putSerializable("factoryConstructor", factoryConstructor as Serializable)
+                        putSerializable("createVMFactory", createVMFactory as Serializable)
                     }
                 }
     }
