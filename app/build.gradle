@@ -52,4 +52,6 @@ dependencies {
 
     implementation 'org.kodein.di:kodein-di-generic-jvm:5.0.0'
     implementation 'org.kodein.di:kodein-di-framework-android:5.0.0'
+
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
 }

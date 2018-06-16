@@ -8,6 +8,7 @@ import cchcc.learn.amu.databinding.ActivityMainBinding
 import cchcc.learn.amu.e01.E01Activity
 import cchcc.learn.amu.e02.E02Activity
 import cchcc.learn.amu.e02a.E02aActivity
+import cchcc.learn.amu.e03.E03Activity
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
 
     fun startE02a() {
         startActivity(Intent(this, E02aActivity::class.java))
+    }
+
+    fun startE03() {
+        startActivity(Intent(this, E03Activity::class.java))
     }
 
 }

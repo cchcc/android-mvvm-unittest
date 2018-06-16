@@ -41,3 +41,10 @@ so [ViewModelProvider.Factory](https://developer.android.com/reference/android/a
 Based on [E02](#e02-simple-fragment-with-some-animations).
 
 [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) with [Kodein DI](http://kodein.org/Kodein-DI/) as a elegant way to decouple the logic.
+
+
+## E03 - RecyclerView
+
+Simple [Data Binding](https://developer.android.com/topic/libraries/data-binding/),
+[ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel),
+[LiveData](https://developer.android.com/topic/libraries/architecture/livedata) on an RecyclerView.
