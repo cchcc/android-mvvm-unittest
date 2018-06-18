@@ -30,6 +30,7 @@ class E03Activity : AppCompatActivity() {
     fun onClickAdd() {
         viewModel.add()
         adapter.notifyItemInserted(0)
+        adapter.notifyItemRangeChanged(1, viewModel.items.value!!.size -1)
         rcv_contents.post {
             rcv_contents.scrollToPosition(0)
         }
@@ -38,7 +39,7 @@ class E03Activity : AppCompatActivity() {
     fun onClickRemoveItem(memo: E03Memo, idx: Int) {
         viewModel.removeAt(idx)
         adapter.notifyItemRemoved(idx)
-        adapter.notifyItemRangeChanged(idx, viewModel.items.value!!.size - 1)
+        adapter.notifyItemRangeChanged(idx, viewModel.items.value!!.size - idx)
         Toast.makeText(this@E03Activity, "\"${memo.content}\" is removed", Toast.LENGTH_SHORT).show()
     }
 }
