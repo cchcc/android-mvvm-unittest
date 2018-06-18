@@ -2,6 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+            name="vh"
+            type="cchcc.learn.amu.e03.E03MemoAdapter.VH" />
+    </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,6 +20,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
+            android:onClick="@{() -> vh.onClickRemove()}"
+            android:background="@null"
             android:src="@android:drawable/ic_menu_delete"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +34,9 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:lines="1"
-            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:imeOptions="actionGo"
+            android:text="@={vh.content}"
             app:layout_constraintEnd_toStartOf="@+id/bt_delete"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

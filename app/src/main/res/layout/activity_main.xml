@@ -44,7 +44,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="@{() -> host.startE03()}"
-                    android:text="E02 RecyclerView" />
+                    android:text="E03 RecyclerView" />
 
             </LinearLayout>
         </ScrollView>

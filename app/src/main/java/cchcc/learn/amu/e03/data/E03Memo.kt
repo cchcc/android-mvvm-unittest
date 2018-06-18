@@ -1,3 +1,3 @@
 package cchcc.learn.amu.e03.data
 
-data class E03Memo(val content: String)
+data class E03Memo(var content: String)

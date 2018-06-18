@@ -48,3 +48,5 @@ Based on [E02](#e02-simple-fragment-with-some-animations).
 Simple [Data Binding](https://developer.android.com/topic/libraries/data-binding/),
 [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel),
 [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) on an RecyclerView.
+
+Implementation of Add, Remove and Edit actions.
