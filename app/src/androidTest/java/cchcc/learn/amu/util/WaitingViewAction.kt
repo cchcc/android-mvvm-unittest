@@ -9,7 +9,7 @@ import org.hamcrest.Matcher
 class WaitingViewAction(private val milliSec: Long) : ViewAction {
     override fun getDescription(): String = "waiting $milliSec milli seconds"
 
-    override fun getConstraints(): Matcher<View> = ViewMatchers.isRoot()
+    override fun getConstraints(): Matcher<View> = ViewMatchers.isDisplayed()
 
     override fun perform(uiController: UiController, view: View?) {
         uiController.loopMainThreadForAtLeast(milliSec)

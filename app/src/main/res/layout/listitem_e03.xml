@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/bt_delete"
+            android:id="@+id/bt_remove"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -37,7 +37,7 @@
             android:singleLine="true"
             android:imeOptions="actionGo"
             android:text="@={vh.content}"
-            app:layout_constraintEnd_toStartOf="@+id/bt_delete"
+            app:layout_constraintEnd_toStartOf="@id/bt_remove"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
