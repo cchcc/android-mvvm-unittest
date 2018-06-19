@@ -34,7 +34,7 @@ class E02FragmentTest {
         val createVMFactory = {
             object : ViewModelProvider.Factory {
                 @Suppress("UNCHECKED_CAST")
-                override fun <T : ViewModel?> create(modelClass: Class<T>): T = E02ViewModel(justTrue) as T
+                override fun <T : ViewModel?> create(modelClass: Class<T>): T = E02ViewModel(E02::justTrue) as T
             }
         }
 

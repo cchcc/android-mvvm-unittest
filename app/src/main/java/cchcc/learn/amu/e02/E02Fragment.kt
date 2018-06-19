@@ -16,15 +16,15 @@ import java.io.Serializable
 
 class E02Fragment : Fragment() {
 
-    private lateinit var createVMFactory: () -> ViewModelProvider.Factory
+    private val createVMFactory: () -> ViewModelProvider.Factory by lazy {
+        @Suppress("UNCHECKED_CAST")
+        arguments?.getSerializable("createVMFactory") as? () -> ViewModelProvider.Factory
+                ?: throw IllegalStateException("no createVMFactory for ${this::class.java.simpleName}")
+    }
     private val viewModel: E02ViewModel by lazy { ViewModelProviders.of(this, createVMFactory()).get(E02ViewModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        @Suppress("UNCHECKED_CAST")
-        createVMFactory = arguments?.getSerializable("createVMFactory") as? () -> ViewModelProvider.Factory
-                ?: throw IllegalStateException("no createVMFactory for ${this::class.java.simpleName}")
 
         viewModel.result.observe(this, Observer {
             lav_result.setAnimation(when (it) {
