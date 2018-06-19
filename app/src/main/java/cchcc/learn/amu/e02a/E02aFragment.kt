@@ -29,7 +29,7 @@ class E02aFragment : Fragment(), KodeinAware {
 
         @Suppress("UNCHECKED_CAST")
         val createKodein = arguments?.getSerializable("createKodein") as? () -> Kodein
-            ?: throw IllegalStateException("no ViewModelFactory for ${this::class.java.simpleName}")
+            ?: throw IllegalStateException("no createKodein for ${this::class.java.simpleName}")
 
         kodein = createKodein()
 

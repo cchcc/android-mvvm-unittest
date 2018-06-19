@@ -24,7 +24,7 @@ class E02Fragment : Fragment() {
 
         @Suppress("UNCHECKED_CAST")
         createVMFactory = arguments?.getSerializable("createVMFactory") as? () -> ViewModelProvider.Factory
-                ?: throw IllegalStateException("no ViewModelFactory for ${this::class.java.simpleName}")
+                ?: throw IllegalStateException("no createVMFactory for ${this::class.java.simpleName}")
 
         viewModel.result.observe(this, Observer {
             lav_result.setAnimation(when (it) {
