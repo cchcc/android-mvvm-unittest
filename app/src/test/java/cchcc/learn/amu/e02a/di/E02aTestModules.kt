@@ -7,5 +7,5 @@ import org.kodein.di.generic.singleton
 
 
 val E02aTestViewModelModule = Kodein.Module {
-    bind<() -> Boolean>() with singleton { E02::justTure }
+    bind<() -> Boolean>() with singleton { E02::justTrue }
 }

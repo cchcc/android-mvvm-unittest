@@ -17,7 +17,7 @@ val E02aTestFragmentModule = Kodein.Module {
     bind<ViewModelProvider.Factory>() with singleton {
         object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T = E02ViewModel(E02::justTure) as T
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T = E02ViewModel(E02::justTrue) as T
         }
     }
     bind<E02ViewModel>() with provider {

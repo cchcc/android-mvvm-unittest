@@ -13,7 +13,7 @@ class E02ViewModelTest {
     @Test
     fun tryResult_and_applyScore() {
         // given
-        val viewModel = E02ViewModel(E02::justTure)
+        val viewModel = E02ViewModel(E02::justTrue)
 
         viewModel.tryResult() // when
         Assert.assertEquals(E02ViewModel.TryResult.SUCCESS, viewModel.result.value) // then

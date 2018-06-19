@@ -4,5 +4,5 @@ import android.support.annotation.RestrictTo
 
 @RestrictTo(RestrictTo.Scope.TESTS)
 object E02 {
-    fun justTure() = true
+    fun justTrue() = true
 }
