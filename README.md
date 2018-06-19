@@ -32,7 +32,7 @@ there is a dummy activity which only works on debug and test that implemented wi
 debug [Source set](https://developer.android.com/studio/build/build-variants#sourcesets) and
 [@RestrictTo](https://developer.android.com/reference/android/support/annotation/RestrictTo) annotation.
 
-For unit test, it needs to decouple the logic that getting boolean result from ViewModel([refactoring](https://github.com/cchcc/android-mvvm-unittest/commit/3b83f37ce5662f87718d206e403c75183f838b9c#diff-d4cb6e786555538509a8f26e58af0973)).
+For unit test, it needs to decouple the logic that getting boolean result from ViewModel.
 so [ViewModelProvider.Factory](https://developer.android.com/reference/android/arch/lifecycle/ViewModelProvider.Factory) is here.
 
 

@@ -3,7 +3,7 @@ package cchcc.learn.amu.e02a.di
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v4.app.Fragment
-import cchcc.learn.amu.e02a.E02aViewModel
+import cchcc.learn.amu.e02.E02ViewModel
 import cchcc.learn.amu.e02a.E02aViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.generic.bind
@@ -27,7 +27,7 @@ val E02aFragmentModule = Kodein.Module {
     bind<ViewModelProvider.Factory>() with singleton {
         E02aViewModelFactory()
     }
-    bind<E02aViewModel>() with provider {
-        ViewModelProviders.of(receiver as Fragment, instance()).get(E02aViewModel::class.java)
+    bind<E02ViewModel>() with provider {
+        ViewModelProviders.of(receiver as Fragment, instance()).get(E02ViewModel::class.java)
     }
 }

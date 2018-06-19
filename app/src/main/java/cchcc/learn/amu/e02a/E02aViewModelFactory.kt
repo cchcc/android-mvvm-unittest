@@ -2,6 +2,7 @@ package cchcc.learn.amu.e02a
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
+import cchcc.learn.amu.e02.E02ViewModel
 import cchcc.learn.amu.e02a.di.E02aViewModelModule
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -16,10 +17,10 @@ class E02aViewModelFactory : ViewModelProvider.Factory, KodeinAware {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
 
-        val vm by kodein.newInstance { E02aViewModel(instance()) }
+        val vm by kodein.newInstance { E02ViewModel(instance()) }
 
         return when (modelClass) {
-            E02aViewModel::class.java -> vm
+            E02ViewModel::class.java -> vm
             else -> throw IllegalArgumentException("$modelClass is not registered ViewModel")
         } as T
     }

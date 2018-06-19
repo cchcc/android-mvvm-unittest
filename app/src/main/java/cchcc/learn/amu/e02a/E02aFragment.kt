@@ -8,9 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import cchcc.learn.amu.R
-import cchcc.learn.amu.databinding.FragmentE02aBinding
+import cchcc.learn.amu.databinding.FragmentE02Binding
+import cchcc.learn.amu.e02.E02ViewModel
 import cchcc.learn.amu.e02a.di.E02aFragmentModule
-import kotlinx.android.synthetic.main.fragment_e02a.*
+import kotlinx.android.synthetic.main.fragment_e02.*
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance
@@ -21,7 +22,7 @@ class E02aFragment : Fragment(), KodeinAware {
     // to getting kodein is usually done by closestKodein() that is declared dependencies from parent(Activity, Application) layer.
     override lateinit var kodein: Kodein
 
-    private val viewModel: E02aViewModel by instance()
+    private val viewModel: E02ViewModel by instance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,37 +33,27 @@ class E02aFragment : Fragment(), KodeinAware {
 
         kodein = createKodein()
 
-        viewModel.result.observe(this, Observer<E02aViewModel.TryResult> {
+        viewModel.result.observe(this, Observer<E02ViewModel.TryResult> {
             lav_result.setAnimation(when (it) {
-                E02aViewModel.TryResult.FAILED -> R.raw.e02_failed
-                E02aViewModel.TryResult.SUCCESS -> R.raw.e02_succes
+                E02ViewModel.TryResult.FAILED -> R.raw.e02_failed
+                E02ViewModel.TryResult.SUCCESS -> R.raw.e02_succes
                 else -> throw IllegalStateException()
             })
             lav_result.playAnimation()
+        })
+
+        viewModel.cleared.observe(this, Observer {
+            lav_result.cancelAnimation()
+            lav_result.progress = 0.0f
         })
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? =
-            DataBindingUtil.inflate<FragmentE02aBinding>(inflater, R.layout.fragment_e02a, container, false).also {
+            DataBindingUtil.inflate<FragmentE02Binding>(inflater, R.layout.fragment_e02, container, false).also {
                 it.setLifecycleOwner(this)
-                it.host = this
                 it.viewModel = viewModel
             }.root
-
-    fun onClickTry() {
-        viewModel.tryResult()
-    }
-
-    fun onAnimationEnd() {
-        viewModel.applyScore()
-    }
-
-    fun onClickClear() {
-        lav_result.cancelAnimation()
-        lav_result.progress = 0.0f
-        viewModel.clear()
-    }
 
     companion object {
 

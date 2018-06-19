@@ -6,10 +6,6 @@
     <data>
 
         <variable
-            name="host"
-            type="cchcc.learn.amu.e02.E02Fragment" />
-
-        <variable
             name="viewModel"
             type="cchcc.learn.amu.e02.E02ViewModel" />
     </data>
@@ -27,7 +23,7 @@
             app:lottie_rawRes="@raw/e02_failed"
             app:lottie_loop="false"
             app:lottie_autoPlay="false"
-            app:onAnimationEnd="@{() -> host.onAnimationEnd()}"
+            app:onAnimationEnd="@{() -> viewModel.applyScore()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +49,7 @@
             android:layout_marginStart="8dp"
             android:text="clear"
             android:textSize="20sp"
-            android:onClick="@{() -> host.onClickClear()}"
+            android:onClick="@{() -> viewModel.clear()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/bt_try"
             app:layout_constraintHorizontal_bias="0.5"
@@ -72,7 +68,7 @@
             android:layout_marginStart="8dp"
             android:text="try"
             android:textSize="20sp"
-            android:onClick="@{() -> host.onClickTry()}"
+            android:onClick="@{() -> viewModel.tryResult()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
