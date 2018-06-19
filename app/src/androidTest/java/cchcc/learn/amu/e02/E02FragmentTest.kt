@@ -27,8 +27,6 @@ class E02FragmentTest {
     @get:Rule
     val rule = object : ActivityTestRule<FragmentTestActivity>(FragmentTestActivity::class.java) {}
 
-    private fun justTrue() = true
-
     @Before
     fun setFragment() {
 
@@ -36,7 +34,7 @@ class E02FragmentTest {
         val createVMFactory = {
             object : ViewModelProvider.Factory {
                 @Suppress("UNCHECKED_CAST")
-                override fun <T : ViewModel?> create(modelClass: Class<T>): T = E02ViewModel(this@E02FragmentTest::justTrue) as T
+                override fun <T : ViewModel?> create(modelClass: Class<T>): T = E02ViewModel(justTrue) as T
             }
         }
 
