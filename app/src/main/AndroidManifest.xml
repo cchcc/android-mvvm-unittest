@@ -19,7 +19,7 @@
         <activity android:name=".e01.E01Activity" />
         <activity android:name=".e02.E02Activity" />
         <activity android:name=".e02a.E02aActivity" />
-        <activity android:name=".e03.E03Activity"></activity>
+        <activity android:name=".e03.E03Activity" />
     </application>
 
 </manifest>

@@ -6,10 +6,6 @@
     <data>
 
         <variable
-            name="host"
-            type="cchcc.learn.amu.e01.E01Activity" />
-
-        <variable
             name="viewModel"
             type="cchcc.learn.amu.e01.E01ViewModel" />
 
@@ -75,7 +71,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="104dp"
-            android:onClick="@{() -> host.onClickClear()}"
+            android:onClick="@{() -> viewModel.clear()}"
             android:text="clear"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/bt_plus"
@@ -91,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:onClick="@{() -> host.onClickPlus()}"
+            android:onClick="@{() -> viewModel.plus()}"
             android:text="plus"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/bt_clear"

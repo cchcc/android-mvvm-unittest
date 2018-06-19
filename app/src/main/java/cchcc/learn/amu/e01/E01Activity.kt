@@ -20,7 +20,6 @@ class E01Activity : AppCompatActivity() {
 
         DataBindingUtil.setContentView<ActivityE01Binding>(this, R.layout.activity_e01).also {
             it.setLifecycleOwner(this)
-            it.host = this
             it.viewModel = viewModel
         }
 
@@ -28,13 +27,4 @@ class E01Activity : AppCompatActivity() {
         viewModel.left.observe(this, setInvisibleResult)
         viewModel.right.observe(this, setInvisibleResult)
     }
-
-    fun onClickClear() {
-        viewModel.clear()
-    }
-
-    fun onClickPlus() {
-        viewModel.plus()
-    }
-
 }
