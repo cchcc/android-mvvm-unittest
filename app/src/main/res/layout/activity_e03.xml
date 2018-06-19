@@ -7,10 +7,6 @@
     <data>
 
         <variable
-            name="host"
-            type="cchcc.learn.amu.e03.E03Activity" />
-
-        <variable
             name="viewModel"
             type="cchcc.learn.amu.e03.E03ViewModel" />
     </data>
@@ -29,7 +25,7 @@
             android:layout_marginTop="8dp"
             android:background="@null"
             android:src="@android:drawable/ic_menu_add"
-            android:onClick="@{() -> host.onClickAdd()}"
+            android:onClick="@{() -> viewModel.add()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,8 +49,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
-            app:layoutManager="@{host.layoutManager}"
-            app:adapter="@{host.adapter}"
             tools:listitem="@layout/listitem_e03"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

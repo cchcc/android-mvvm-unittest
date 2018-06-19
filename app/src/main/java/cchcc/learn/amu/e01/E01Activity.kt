@@ -18,7 +18,7 @@ class E01Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        DataBindingUtil.setContentView<ActivityE01Binding>(this, R.layout.activity_e01).also {
+        DataBindingUtil.setContentView<ActivityE01Binding>(this, R.layout.activity_e01).let {
             it.setLifecycleOwner(this)
             it.viewModel = viewModel
         }

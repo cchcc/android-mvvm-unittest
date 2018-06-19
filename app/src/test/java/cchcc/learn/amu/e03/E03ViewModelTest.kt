@@ -15,7 +15,7 @@ class E03ViewModelTest {
         // given
         val viewModel = E03ViewModel()
 
-        val beforeSize = viewModel.items.value!!.size
+        val beforeSize = viewModel.memos.value!!.size
         val newContent = "new content"
 
         viewModel.newContent.value = newContent
@@ -24,8 +24,8 @@ class E03ViewModelTest {
         viewModel.add()
 
         // then
-        Assert.assertEquals(newContent, viewModel.items.value!![0].content)
-        Assert.assertEquals(beforeSize + 1, viewModel.items.value!!.size)
+        Assert.assertEquals(newContent, viewModel.memos.value!![0].content)
+        Assert.assertEquals(beforeSize + 1, viewModel.memos.value!!.size)
     }
 
     @Test
@@ -33,16 +33,16 @@ class E03ViewModelTest {
         // given
         val viewModel = E03ViewModel()
 
-        val beforeSize = viewModel.items.value!!.size
+        val beforeSize = viewModel.memos.value!!.size
         val idx = 3
-        val beforeMemo = viewModel.items.value!![idx]
+        val beforeMemo = viewModel.memos.value!![idx]
 
         // when
-        viewModel.removeAt(idx)
+        viewModel.remove(beforeMemo, idx)
 
         // then
-        Assert.assertFalse(beforeMemo == viewModel.items.value!![idx])
-        Assert.assertEquals(beforeSize - 1, viewModel.items.value!!.size)
+        Assert.assertFalse(beforeMemo == viewModel.memos.value!![idx])
+        Assert.assertEquals(beforeSize - 1, viewModel.memos.value!!.size)
     }
 
 }

@@ -8,7 +8,7 @@ class E02aActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_e02a)
+        setContentView(R.layout.activity_e02)
 
         supportFragmentManager.beginTransaction()
                 .replace(R.id.fl_main, E02aFragment.newInstance())

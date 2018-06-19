@@ -1,5 +1,6 @@
 package cchcc.learn.amu.e03
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -15,31 +16,40 @@ import kotlinx.android.synthetic.main.activity_e03.*
 class E03Activity : AppCompatActivity() {
 
     private val viewModel: E03ViewModel by lazy { ViewModelProviders.of(this).get(E03ViewModel::class.java) }
-    val layoutManager: RecyclerView.LayoutManager by lazy { LinearLayoutManager(this) }
-    val adapter: RecyclerView.Adapter<E03MemoAdapter.VH> by lazy { E03MemoAdapter(viewModel.items.value!!, this::onClickRemoveItem) }
+    private val adapter: RecyclerView.Adapter<E03MemoAdapter.VH> by lazy { E03MemoAdapter(viewModel.memos.value!!, viewModel::remove) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        DataBindingUtil.setContentView<ActivityE03Binding>(this, R.layout.activity_e03).also {
+        DataBindingUtil.setContentView<ActivityE03Binding>(this, R.layout.activity_e03).let {
             it.setLifecycleOwner(this)
-            it.host = this
             it.viewModel = viewModel
         }
+
+        viewModel.listAction.observe(this, Observer {
+            when(it) {
+                is E03ViewModel.ListAction.Added -> onAdded()
+                is E03ViewModel.ListAction.Removed -> onRemoved(it.memo, it.idx)
+            }
+        })
+
+        rcv_contents.let {
+            it.adapter = adapter
+            it.layoutManager = LinearLayoutManager(this)
+        }
+
     }
 
-    fun onClickAdd() {
-        viewModel.add()
+    private fun onAdded() {
         adapter.notifyItemInserted(0)
-        adapter.notifyItemRangeChanged(1, viewModel.items.value!!.size -1)
+        adapter.notifyItemRangeChanged(1, viewModel.sizeOfMemos -1)
         rcv_contents.post {
             rcv_contents.scrollToPosition(0)
         }
     }
 
-    fun onClickRemoveItem(memo: E03Memo, idx: Int) {
-        viewModel.removeAt(idx)
+    private fun onRemoved(memo: E03Memo, idx: Int) {
         adapter.notifyItemRemoved(idx)
-        adapter.notifyItemRangeChanged(idx, viewModel.items.value!!.size - idx)
-        Toast.makeText(this@E03Activity, "\"${memo.content}\" is removed", Toast.LENGTH_SHORT).show()
+        adapter.notifyItemRangeChanged(idx, viewModel.sizeOfMemos - idx)
+        Toast.makeText(this, "\"${memo.content}\" is removed", Toast.LENGTH_SHORT).show()
     }
 }

@@ -1,6 +1,7 @@
 package cchcc.learn.amu.e02a
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
+import cchcc.learn.amu.e02.E02ViewModel
 import cchcc.learn.amu.e02a.di.E02aTestViewModelModule
 import org.junit.Assert
 import org.junit.Rule
@@ -23,10 +24,10 @@ class E02aViewModelTest : KodeinAware {
     @Test
     fun tryResult_and_applyScore() {
         // given
-        val viewModel by kodein.newInstance { E02aViewModel(instance()) }
+        val viewModel by kodein.newInstance { E02ViewModel(instance()) }
 
         viewModel.tryResult() // when
-        Assert.assertEquals(E02aViewModel.TryResult.SUCCESS, viewModel.result.value) // then
+        Assert.assertEquals(E02ViewModel.TryResult.SUCCESS, viewModel.result.value) // then
 
         viewModel.applyScore() // when
         Assert.assertEquals(1, viewModel.score.value)  // then

@@ -21,9 +21,7 @@ class E03MemoAdapter(private val items: List<E03Memo>, val onClickRemove: OnList
         lateinit var memo: E03Memo
         val content = MutableLiveData<String>()
 
-        fun onClickRemove() {
-            this@E03MemoAdapter.onClickRemove(memo, idx)
-        }
+        fun onClickRemove(): Unit = this@E03MemoAdapter.onClickRemove(memo, idx)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -31,22 +29,21 @@ class E03MemoAdapter(private val items: List<E03Memo>, val onClickRemove: OnList
         val binding = DataBindingUtil.inflate<ListitemE03Binding>(LayoutInflater.from(parent.context), R.layout.listitem_e03, parent, false)
         val vh = VH(binding.root)
 
-        with(binding) {
-            setLifecycleOwner(lifecycleOwner)
-            this.vh = vh
+        binding.let {
+            it.setLifecycleOwner(lifecycleOwner)
+            it.vh = vh
         }
 
-        vh.content.observe(lifecycleOwner, Observer<String> { vh.memo.content = it ?: "" })
+        vh.content.observe(lifecycleOwner, Observer { vh.memo.content = it ?: "" })
         return vh
     }
 
     override fun getItemCount(): Int = items.size
 
-    override fun onBindViewHolder(holder: VH, position: Int) = with(holder) {
+    override fun onBindViewHolder(holder: VH, position: Int): Unit = with(holder) {
         idx = position
         memo = items[position]
         content.value = memo.content
     }
-
 
 }
