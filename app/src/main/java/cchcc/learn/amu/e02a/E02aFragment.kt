@@ -20,18 +20,18 @@ import java.io.Serializable
 class E02aFragment : Fragment(), KodeinAware {
 
     // to getting kodein is usually done by closestKodein() that is declared dependencies from parent(Activity, Application) layer.
-    override lateinit var kodein: Kodein
+    override val kodein: Kodein by lazy {
+        @Suppress("UNCHECKED_CAST")
+        val createKodein = arguments?.getSerializable("createKodein") as? () -> Kodein
+                ?: throw IllegalStateException("no createKodein for ${this::class.java.simpleName}")
+
+        createKodein()
+    }
 
     private val viewModel: E02ViewModel by instance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        @Suppress("UNCHECKED_CAST")
-        val createKodein = arguments?.getSerializable("createKodein") as? () -> Kodein
-            ?: throw IllegalStateException("no createKodein for ${this::class.java.simpleName}")
-
-        kodein = createKodein()
 
         viewModel.result.observe(this, Observer<E02ViewModel.TryResult> {
             lav_result.setAnimation(when (it) {

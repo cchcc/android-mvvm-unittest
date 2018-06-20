@@ -50,3 +50,11 @@ Simple [Data Binding](https://developer.android.com/topic/libraries/data-binding
 [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) on an RecyclerView.
 
 Implementation of Add, Remove and Edit actions.
+
+## E04 - Request Permission
+
+Request Permission on MVVM
+
+## TODO
+
+change screen with coordinator on MVVM

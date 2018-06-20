@@ -36,7 +36,6 @@ class E03Activity : AppCompatActivity() {
             it.adapter = adapter
             it.layoutManager = LinearLayoutManager(this)
         }
-
     }
 
     private fun onAdded() {
