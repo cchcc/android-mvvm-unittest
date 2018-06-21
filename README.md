@@ -53,7 +53,7 @@ Implementation of Add, Remove and Edit actions.
 
 ## E04 - Request Permission
 
-Request Permission on MVVM
+[Request Permission](https://developer.android.com/training/permissions/requesting) on MVVM
 
 ## TODO
 

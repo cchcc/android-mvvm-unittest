@@ -28,11 +28,11 @@ class UserPermission(private val activity: Activity, vararg permissions: String)
 
         val permissionIsAllGranted = notGrantedPermissions.isEmpty()
         if (permissionIsAllGranted) {
-            isGrantedCallback()
+            isGranted()
         } else {
             isGrantedCallback = isGranted
             notGrantedCallback = notGranted
-            val requestCode = Math.abs(activity.hashCode() + isGranted.hashCode()).toShort().toInt()
+            val requestCode = Math.abs((activity.hashCode() + isGranted.hashCode()).toShort().toInt())
             permissions.put(requestCode, this)
             ActivityCompat.requestPermissions(activity, notGrantedPermissions, requestCode)
         }
