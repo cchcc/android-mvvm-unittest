@@ -19,9 +19,9 @@ class E02Fragment : Fragment() {
     private val createVMFactory: () -> ViewModelProvider.Factory by lazy {
         @Suppress("UNCHECKED_CAST")
         arguments?.getSerializable("createVMFactory") as? () -> ViewModelProvider.Factory
-                ?: throw IllegalStateException("no createVMFactory for ${this::class.java.simpleName}")
+                ?: throw IllegalArgumentException("no createVMFactory for ${this::class.java.simpleName}")
     }
-    private val viewModel: E02ViewModel by lazy { ViewModelProviders.of(this, createVMFactory()).get(E02ViewModel::class.java) }
+    val viewModel: E02ViewModel by lazy { ViewModelProviders.of(this, createVMFactory()).get(E02ViewModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

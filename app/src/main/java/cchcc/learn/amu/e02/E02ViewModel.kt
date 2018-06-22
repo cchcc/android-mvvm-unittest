@@ -10,6 +10,7 @@ class E02ViewModel(private val nextBoolean: () -> Boolean) : ViewModel() {
     val score = MutableLiveData<Int>().apply { value = 0 }
     val result = MutableLiveData<TryResult>()
     val cleared = MutableLiveData<Unit>()
+    val animSpeed = MutableLiveData<Float>().apply { value = 0.0f }
 
     fun tryResult() {
         result.value = if (nextBoolean()) TryResult.SUCCESS else TryResult.FAILED

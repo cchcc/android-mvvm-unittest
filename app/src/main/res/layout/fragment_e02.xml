@@ -20,14 +20,15 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="8dp"
-            app:lottie_rawRes="@raw/e02_failed"
-            app:lottie_loop="false"
-            app:lottie_autoPlay="false"
-            app:onAnimationEnd="@{() -> viewModel.applyScore()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/e02_failed"
+            app:onAnimationEnd="@{() -> viewModel.applyScore()}"
+            app:animSpeed="@{viewModel.animSpeed}"/>
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_score"
@@ -45,18 +46,17 @@
             android:id="@+id/bt_clear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
+            android:onClick="@{() -> viewModel.clear()}"
             android:text="clear"
             android:textSize="20sp"
-            android:onClick="@{() -> viewModel.clear()}"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/bt_try"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lav_result"
-            app:layout_constraintVertical_bias="0.15" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_score" />
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/bt_try"
@@ -66,15 +66,14 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:onClick="@{() -> viewModel.tryResult()}"
             android:text="try"
             android:textSize="20sp"
-            android:onClick="@{() -> viewModel.tryResult()}"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/bt_clear"
-            app:layout_constraintTop_toBottomOf="@+id/lav_result"
-            app:layout_constraintVertical_bias="0.15" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_score" />
 
 
     </android.support.constraint.ConstraintLayout>
