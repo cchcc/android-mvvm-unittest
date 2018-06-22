@@ -57,6 +57,9 @@ Implementation of Add, Remove and Edit actions.
 
 [Transformaions.map](https://developer.android.com/topic/libraries/architecture/livedata?hl=ko#transform_livedata) to convert strings to a simple format.
 
+Mocking instance of `Observer` on unit test with [MockK](http://mockk.io/).
+
+
 ## TODO
 
 change screen with coordinator on MVVM

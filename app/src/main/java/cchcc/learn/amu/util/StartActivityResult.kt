@@ -13,7 +13,7 @@ fun Activity.startActivityWithResult(intent: Intent, resultBlock: (Int, Intent?)
     startActivityForResult(intent, requestCode)
 }
 
-fun Activity.activityWithResult(requestCode: Int, resultCode: Int, data: Intent?) {
+fun Activity.activityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     activityResults.get(requestCode)?.let {
         activityResults.remove(requestCode)
         it(resultCode, data)

@@ -51,7 +51,7 @@ fun Activity.permissionOf(vararg permissions: String): UserPermission = UserPerm
 /**
  *  this has to be called in Activity.onRequestPermissionsResult
  */
-fun Activity.permissionResult(requestCode: Int, grantResults: IntArray) = permissions[requestCode]?.let {
+fun Activity.requestPermissionResult(requestCode: Int, grantResults: IntArray) = permissions[requestCode]?.let {
     permissions.remove(requestCode)
     val isGranted = grantResults.all { it == PackageManager.PERMISSION_GRANTED }
     if (isGranted) it.isGrantedCallback() else it.notGrantedCallback()
