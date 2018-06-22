@@ -38,7 +38,7 @@ so [ViewModelProvider.Factory](https://developer.android.com/reference/android/a
 
 ## E02a - Simple Fragment with some animations and DI library
 
-Based on [E02](#e02-simple-fragment-with-some-animations).
+Based on [E02](#e02---simple-fragment-with-some-animations).
 
 [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) with [Kodein DI](http://kodein.org/Kodein-DI/) as a elegant way to decouple the logic.
 
@@ -57,7 +57,7 @@ Implementation of Add, Remove and Edit actions.
 
 [Transformaions.map](https://developer.android.com/topic/libraries/architecture/livedata?hl=ko#transform_livedata) to convert strings to a simple format.
 
-Mocking instance of `Observer` on unit test with [MockK](http://mockk.io/).
+Mocking instance of `Observer` with [MockK](http://mockk.io/) on unit test.
 
 
 ## TODO
