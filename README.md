@@ -24,7 +24,7 @@ Simple [Data Binding](https://developer.android.com/topic/libraries/data-binding
 
 Some animations with [lottie](http://airbnb.io/lottie/)(resources by [Eddy Gann](https://www.lottiefiles.com/ed117)).
 
-Custom binding attribute(onAnimationEnd) using
+Custom binding attribute `onAnimationEnd` using
 [BindingAdapter](https://developer.android.com/topic/libraries/data-binding/binding-adapters#custom-logic).
 
 For single Fragment android instrumented test,
@@ -53,7 +53,9 @@ Implementation of Add, Remove and Edit actions.
 
 ## E04 - Request Permission
 
-[Request Permission](https://developer.android.com/training/permissions/requesting) on MVVM
+[Request Permission](https://developer.android.com/training/permissions/requesting) on MVVM.
+
+[Transformaions.map](https://developer.android.com/topic/libraries/architecture/livedata?hl=ko#transform_livedata) to convert strings to a simple format.
 
 ## TODO
 

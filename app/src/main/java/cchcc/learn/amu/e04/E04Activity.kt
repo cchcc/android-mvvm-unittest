@@ -11,9 +11,9 @@ import android.provider.ContactsContract
 import android.support.v7.app.AppCompatActivity
 import cchcc.learn.amu.R
 import cchcc.learn.amu.databinding.ActivityE04Binding
-import cchcc.learn.amu.util.activityWithResult
+import cchcc.learn.amu.util.activityResult
 import cchcc.learn.amu.util.permissionOf
-import cchcc.learn.amu.util.permissionResult
+import cchcc.learn.amu.util.requestPermissionResult
 import cchcc.learn.amu.util.startActivityWithResult
 
 class E04Activity : AppCompatActivity() {
@@ -45,7 +45,7 @@ class E04Activity : AppCompatActivity() {
                             name to phone
                         }
 
-                        viewModel.setContact(nameAndPhone)
+                        viewModel.nameAndPhone.value = nameAndPhone
                     }
                 }
             }
@@ -54,11 +54,11 @@ class E04Activity : AppCompatActivity() {
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        permissionResult(requestCode, grantResults)
+        requestPermissionResult(requestCode, grantResults)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        activityWithResult(requestCode, resultCode, data)
+        activityResult(requestCode, resultCode, data)
     }
 }

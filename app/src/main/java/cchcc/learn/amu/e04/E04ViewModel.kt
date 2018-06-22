@@ -7,16 +7,13 @@ import android.arch.lifecycle.ViewModel
 
 class E04ViewModel : ViewModel() {
 
-    private val nameAndPhone = MutableLiveData<Pair<String, String>>()
-    val contact = Transformations.map(nameAndPhone) { (name, phone) -> "Name : $name\nPhone : $phone" }
+    val nameAndPhone = MutableLiveData<Pair<String, String>>()
+    val contact = Transformations.map(nameAndPhone) {
+        (name, phone) -> "Name : $name\nPhone : $phone"
+    }
     val pickContactAction = MutableLiveData<Unit>()
 
     fun pickContact() {
         pickContactAction.value = Unit
     }
-
-    fun setContact(name: Pair<String, String>) {
-        nameAndPhone.value = name
-    }
-
 }
