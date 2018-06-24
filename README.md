@@ -1,6 +1,7 @@
 # android-mvvm-unittest
 To learn android [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) based on [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/) and unit test.
 
+- [Kotlin](https://kotlinlang.org/) :heart:
 - Start with basic and simple.
 - Each example should has a unit test at least or more.
 
@@ -58,6 +59,12 @@ Implementation of Add, Remove and Edit actions.
 [Transformaions.map](https://developer.android.com/topic/libraries/architecture/livedata?hl=ko#transform_livedata) to convert strings to a simple format.
 
 Mocking instance of `Observer` with [MockK](http://mockk.io/) on unit test.
+
+## E05 - Interaction between 2 Fragments
+
+Reuse [E02](#e02---simple-fragment-with-some-animations).
+
+Passing `ViewModel` to other view.
 
 
 ## TODO

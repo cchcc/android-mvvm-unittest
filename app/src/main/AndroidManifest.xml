@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cchcc.learn.amu">
 
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -22,9 +22,8 @@
         <activity android:name=".e02.E02Activity" />
         <activity android:name=".e02a.E02aActivity" />
         <activity android:name=".e03.E03Activity" />
-        <activity android:name=".e04.E04Activity"/>
+        <activity android:name=".e04.E04Activity" />
+        <activity android:name=".e05.E05Activity"></activity>
     </application>
-
-
 
 </manifest>
