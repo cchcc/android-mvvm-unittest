@@ -64,7 +64,7 @@ Mocking instance of `Observer` with [MockK](http://mockk.io/) on unit test.
 
 Reuse [E02](#e02---simple-fragment-with-some-animations).
 
-Passing `ViewModel` to other view.
+A Fragment knows two `ViewModel`, so two views observe one `ViewModel`.
 
 
 ## TODO
