@@ -10,7 +10,7 @@ import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import cchcc.learn.amu.FragmentTestActivity
 import cchcc.learn.amu.R
-import cchcc.learn.amu.util.WaitingViewAction
+import cchcc.learn.amu.util.ViewActionsEx
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -42,7 +42,7 @@ class E02FragmentTest {
     fun score_should_increase_when_success() {
         // when
         Espresso.onView(withId(R.id.bt_try)).perform(ViewActions.click())
-        Espresso.onView(isRoot()).perform(WaitingViewAction(1000)) // waiting to end animation
+        Espresso.onView(isRoot()).perform(ViewActionsEx.waiting(1000)) // waiting to end animation
 
         // then
         val expected = String.format(rule.activity.resources.getString(R.string.e02_score_format), 1)

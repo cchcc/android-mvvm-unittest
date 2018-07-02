@@ -7,7 +7,7 @@ import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import cchcc.learn.amu.R
-import cchcc.learn.amu.util.IsInvisibleView
+import cchcc.learn.amu.util.ViewMatchersEx
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -32,6 +32,6 @@ class E01ActivityTest {
         Espresso.onView(withId(R.id.et_left)).perform(ViewActions.typeText("11"))
 
         // then
-        Espresso.onView(withId(R.id.tv_result)).check(matches(IsInvisibleView()))
+        Espresso.onView(withId(R.id.tv_result)).check(matches(ViewMatchersEx.isInvisible()))
     }
 }

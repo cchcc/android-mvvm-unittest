@@ -14,7 +14,7 @@ import android.view.ViewConfiguration
 import android.widget.EditText
 import android.widget.TextView
 import cchcc.learn.amu.R
-import cchcc.learn.amu.util.WaitingViewAction
+import cchcc.learn.amu.util.ViewActionsEx
 import org.hamcrest.Matcher
 import org.junit.Assert
 import org.junit.Rule
@@ -125,11 +125,11 @@ class E03ActivityTest {
 
 
         Espresso.onView(withId(R.id.rcv_contents))  // scrolling
-                .perform(WaitingViewAction(500)
+                .perform(ViewActionsEx.waiting(500)
                         , RecyclerViewActions.scrollToPosition<E03MemoAdapter.VH>(15)
-                        , WaitingViewAction(500)
+                        , ViewActionsEx.waiting(500)
                         , RecyclerViewActions.scrollToPosition<E03MemoAdapter.VH>(0)
-                        , WaitingViewAction(500)
+                        , ViewActionsEx.waiting(500)
                 )
 
 

@@ -1,7 +1,5 @@
 package cchcc.learn.amu.e02a
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
 import android.support.test.espresso.Espresso
 import android.support.test.espresso.UiController
 import android.support.test.espresso.ViewAction
@@ -14,7 +12,7 @@ import android.view.View
 import cchcc.learn.amu.FragmentTestActivity
 import cchcc.learn.amu.R
 import cchcc.learn.amu.e02a.di.E02aTestFragmentModule
-import cchcc.learn.amu.util.WaitingViewAction
+import cchcc.learn.amu.util.ViewActionsEx
 import com.airbnb.lottie.LottieAnimationView
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
@@ -54,7 +52,7 @@ class E02aFragmentTest {
                 (view as LottieAnimationView).speed = 10.0f
             }
         })
-        Espresso.onView(isRoot()).perform(WaitingViewAction(1500)) // waiting to end animation
+        Espresso.onView(isRoot()).perform(ViewActionsEx.waiting(1500)) // waiting to end animation
 
         // then
         val expected = String.format(rule.activity.resources.getString(R.string.e02_score_format), 1)

@@ -24,9 +24,7 @@ class E04ViewModelTest {
         viewModel.nameAndPhone.value = given_name to given_phone
     }
 
-    private val contactObserver = mockk<Observer<String>>().also {
-        every { it.onChanged(expected_value) } returns Unit
-    }
+    private val contactObserver = mockk<Observer<String>>()
 
     @Before
     fun observe() {
@@ -37,6 +35,7 @@ class E04ViewModelTest {
     @Test
     fun pickContact() {
         // when
+        every { contactObserver.onChanged(expected_value) } returns Unit
         viewModel.pickContact()
 
         // then
