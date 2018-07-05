@@ -2,12 +2,11 @@ package cchcc.learn.amu.e01
 
 import android.support.test.espresso.Espresso
 import android.support.test.espresso.action.ViewActions
-import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import cchcc.learn.amu.R
-import cchcc.learn.amu.util.ViewMatchersEx
+import cchcc.learn.amu.util.ViewAssertionsEx
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -32,6 +31,6 @@ class E01ActivityTest {
         Espresso.onView(withId(R.id.et_left)).perform(ViewActions.typeText("11"))
 
         // then
-        Espresso.onView(withId(R.id.tv_result)).check(matches(ViewMatchersEx.isInvisible()))
+        Espresso.onView(withId(R.id.tv_result)).check(ViewAssertionsEx.isInvisible())
     }
 }

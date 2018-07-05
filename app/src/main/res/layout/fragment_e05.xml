@@ -39,8 +39,8 @@
             android:progress="@={viewModel.progress}"
             app:layout_constraintTop_toBottomOf="@id/tv_anim_speed" />
 
-        <ListView
-            android:id="@+id/lv_log"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcv_log"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"

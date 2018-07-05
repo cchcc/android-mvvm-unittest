@@ -22,7 +22,7 @@ class E05ViewModelTest {
 
         // then
         Assert.assertEquals(1, viewModel.logList.value!!.size)
-        Assert.assertTrue(viewModel.logList.value!![0]["line"]!!.contains(line))
+        Assert.assertTrue(viewModel.logList.value!![0].contains(line))
 
         // when
         viewModel.add(line)
@@ -30,7 +30,7 @@ class E05ViewModelTest {
         viewModel.clear()
 
         // then
-        Assert.assertEquals(0, viewModel.logList.value!!.size)
+        Assert.assertEquals(1, viewModel.logList.value!!.size)
     }
 
 }

@@ -66,6 +66,7 @@ Reuse [E02](#e02---simple-fragment-with-some-animations).
 
 A Fragment knows two `ViewModel`, so two views observe one `ViewModel`.
 
+[ListAdapter](https://developer.android.com/reference/android/support/v7/recyclerview/extensions/ListAdapter) for `RecyclerView`.
 
 ## TODO
 

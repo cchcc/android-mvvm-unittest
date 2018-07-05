@@ -20,7 +20,7 @@ object ViewActionsEx {
 
     @JvmStatic
     fun progress(value: Int) = object : ViewAction {
-        override fun getDescription(): String = "progress"
+        override fun getDescription(): String = "set progress to $value"
 
         override fun getConstraints(): Matcher<View> = ViewMatchers.isAssignableFrom(ProgressBar::class.java)
 

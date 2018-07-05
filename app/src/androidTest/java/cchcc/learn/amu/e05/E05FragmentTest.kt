@@ -1,18 +1,15 @@
 package cchcc.learn.amu.e05
 
 import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.NoMatchingViewException
-import android.support.test.espresso.matcher.ViewMatchers.isRoot
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.internal.runner.junit4.statement.UiThreadStatement
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
-import android.widget.ListView
 import cchcc.learn.amu.FragmentTestActivity
 import cchcc.learn.amu.R
 import cchcc.learn.amu.e02.E02
 import cchcc.learn.amu.e02.E02ViewModel
-import cchcc.learn.amu.util.ViewActionsEx
+import cchcc.learn.amu.util.ViewAssertionsEx
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -36,15 +33,7 @@ class E05FragmentTest {
         UiThreadStatement.runOnUiThread { e02ViewModel.applyScore() }
 
         // then
-        onView(withId(R.id.lv_log))
-                .check { view, noViewFoundException ->
-                    noViewFoundException?.let { throw it }
-                    (view as? ListView)?.let {
-                        it.count == 2
-                    } ?: throw NoMatchingViewException.Builder().build()
-
-                }
-
+        onView(withId(R.id.rcv_log)).check(ViewAssertionsEx.hasItemCountOfRecyclerView(4))
     }
 
     @Test
@@ -55,12 +44,6 @@ class E05FragmentTest {
         UiThreadStatement.runOnUiThread { e02ViewModel.clear() }
 
         // then
-        onView(withId(R.id.lv_log))
-                .check { view, noViewFoundException ->
-                    noViewFoundException?.let { throw it }
-                    (view as? ListView)?.let {
-                        it.count == 0
-                    } ?: throw NoMatchingViewException.Builder().build()
-                }
+        onView(withId(R.id.rcv_log)).check(ViewAssertionsEx.hasItemCountOfRecyclerView(1))
     }
 }

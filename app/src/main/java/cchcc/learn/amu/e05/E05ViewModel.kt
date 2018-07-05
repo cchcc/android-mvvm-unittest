@@ -9,7 +9,7 @@ import java.util.*
 
 class E05ViewModel : ViewModel() {
 
-    val logList: LiveData<MutableList<Map<String, String>>> = MutableLiveData<MutableList<Map<String, String>>>().apply {
+    val logList: MutableLiveData<MutableList<String>> = MutableLiveData<MutableList<String>>().apply {
         value = mutableListOf()
     }
     val progress = MutableLiveData<Int>().apply { value = 0 }
@@ -18,10 +18,10 @@ class E05ViewModel : ViewModel() {
     val sdf = SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.getDefault())
 
     fun add(line: String) {
-        logList.value!!.add(mapOf("line" to "${sdf.format(Date())}   $line"))
+        logList.value!!.add("${sdf.format(Date())}   $line")
     }
 
     fun clear() {
-        logList.value!!.clear()
+        logList.value = mutableListOf("cleared")
     }
 }
