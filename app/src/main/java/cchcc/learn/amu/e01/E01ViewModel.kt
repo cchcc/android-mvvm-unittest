@@ -9,10 +9,9 @@ class E01ViewModel : ViewModel() {
     val result = MutableLiveData<String>()
     val visibleResult = MutableLiveData<Boolean>().apply { value = false }
 
-
     fun plus() {
-        val leftNum = left.value.toString().toIntOrNull() ?: 0
-        val rightNum = right.value.toString().toIntOrNull() ?: 0
+        val leftNum = left.value.toString().toIntOrNull() ?: run { visibleResult.value = false; return }
+        val rightNum = right.value.toString().toIntOrNull() ?: run { visibleResult.value = false; return }
         result.value = (leftNum + rightNum).toString()
         visibleResult.value = true
     }
