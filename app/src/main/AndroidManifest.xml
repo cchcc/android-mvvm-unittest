@@ -19,11 +19,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".e01.E01Activity" />
+        <activity android:name=".e01a.E01aActivity" />
         <activity android:name=".e02.E02Activity" />
         <activity android:name=".e02a.E02aActivity" />
         <activity android:name=".e03.E03Activity" />
         <activity android:name=".e04.E04Activity" />
-        <activity android:name=".e05.E05Activity"></activity>
+        <activity android:name=".e05.E05Activity" />
     </application>
 
 </manifest>

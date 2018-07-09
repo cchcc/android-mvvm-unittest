@@ -12,10 +12,13 @@ Simple [Data Binding](https://developer.android.com/topic/libraries/data-binding
 [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel),
 [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) on an Activity.
 
-Two-way binding at EditText.
-
 Simple Unit Test with [Espresso](https://developer.android.com/training/testing/espresso/).
 
+## E01a - Simple Activity and Two-way binding
+
+Base on [E01](#e01---simple-activity)
+
+[MediatorLiveData](https://developer.android.com/reference/android/arch/lifecycle/MediatorLiveData) to merge events of two `LiveData`
 
 ## E02 - Simple Fragment with some animations
 
@@ -48,7 +51,7 @@ Based on [E02](#e02---simple-fragment-with-some-animations).
 
 Simple [Data Binding](https://developer.android.com/topic/libraries/data-binding/),
 [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel),
-[LiveData](https://developer.android.com/topic/libraries/architecture/livedata) on an RecyclerView.
+[LiveData](https://developer.android.com/topic/libraries/architecture/livedata) on an `RecyclerView`.
 
 Implementation of Add, Remove and Edit actions.
 

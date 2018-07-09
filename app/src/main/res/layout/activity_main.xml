@@ -31,6 +31,12 @@
                 <android.support.v7.widget.AppCompatButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="@{() -> host.startE01a()}"
+                    android:text="E01a simple activity And Two-way binding" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:onClick="@{() -> host.startE02()}"
                     android:text="E02 simple fragment" />
 
