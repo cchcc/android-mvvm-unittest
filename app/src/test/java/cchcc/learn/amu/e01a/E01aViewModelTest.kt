@@ -1,56 +1,48 @@
 package cchcc.learn.amu.e01a
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
-import android.arch.lifecycle.Observer
+import android.arch.lifecycle.Lifecycle
+import android.arch.lifecycle.LifecycleRegistry
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import org.junit.*
+import org.junit.Assert
+import org.junit.Rule
+import org.junit.Test
 
 class E01aViewModelTest {
     @Rule
     @JvmField
     val rule = InstantTaskExecutorRule()
 
-    private val viewModel by lazy { E01aViewModel() }
+    @Test fun result_only_when_two_values_changed() {
+        val viewModel = E01aViewModel()
+        val lifecycle = LifecycleRegistry(mockk()).apply {
+            handleLifecycleEvent(Lifecycle.Event.ON_RESUME)
+        }
 
-    private val resultObserver = mockk<Observer<String>>()
-    private val resultVisibleObserver = mockk<Observer<Boolean>>().also {
-        every { it.onChanged(false) } returns Unit    // for initial value
-    }
-
-    @Before
-    fun observe() {
-        viewModel.result.observeForever(resultObserver)
-        viewModel.visibleResult.observeForever(resultVisibleObserver)
-    }
-
-    @Test fun result_only_when_two_values_changed_both() {
         // given
-        val leftVal = "1"
-        val rightVal = "1"
-        val expectedResultVal = "2"
+        val givenLeft = "1"
+        val givenRight = "1"
+
+        val visibleResultObserver = mockk<(Boolean?) -> Unit>().also {
+            every { it.invoke(false) } returns Unit // for initial value
+        }
+        viewModel.result.observe({ lifecycle }) {}
+        viewModel.visibleResult.observe({ lifecycle }, visibleResultObserver)
 
         // when
-        viewModel.left.value = leftVal
+        viewModel.left.value = givenLeft
 
         // then
         Assert.assertNull(viewModel.result.value)
 
         // when
-        every { resultObserver.onChanged(expectedResultVal) } returns Unit
-        every { resultVisibleObserver.onChanged(true) } returns Unit
-        viewModel.right.value = rightVal
+        every { visibleResultObserver.invoke(true) } returns Unit
+        viewModel.right.value = givenRight
 
         // then
-        verify { resultObserver.onChanged(expectedResultVal) }
-        verify { resultVisibleObserver.onChanged(true) }
-        Assert.assertEquals(expectedResultVal, viewModel.result.value)
-    }
-
-    @After
-    fun removeObserver() {
-        viewModel.visibleResult.removeObserver(resultVisibleObserver)
-        viewModel.result.removeObserver(resultObserver)
+        verify { visibleResultObserver.invoke(true) }
+        Assert.assertEquals("2", viewModel.result.value)
     }
 }

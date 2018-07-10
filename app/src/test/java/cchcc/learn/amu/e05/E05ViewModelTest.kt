@@ -1,6 +1,9 @@
 package cchcc.learn.amu.e05
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
+import android.arch.lifecycle.Lifecycle
+import android.arch.lifecycle.LifecycleRegistry
+import io.mockk.mockk
 import org.junit.Assert
 import org.junit.Rule
 import org.junit.Test
@@ -15,22 +18,42 @@ class E05ViewModelTest {
         val viewModel = E05ViewModel()
 
         // given
-        val line = "first"
+        val givenLine = "first"
 
         // when
-        viewModel.add(line)
+        viewModel.add(givenLine)
 
         // then
         Assert.assertEquals(1, viewModel.logList.value!!.size)
-        Assert.assertTrue(viewModel.logList.value!![0].contains(line))
+        Assert.assertTrue(viewModel.logList.value!![0].contains(givenLine))
 
         // when
-        viewModel.add(line)
-        viewModel.add(line)
+        viewModel.add(givenLine)
+        viewModel.add(givenLine)
         viewModel.clear()
 
         // then
         Assert.assertEquals(1, viewModel.logList.value!!.size)
+    }
+
+
+
+    @Test
+    fun animSpeed() {
+        val viewModel = E05ViewModel()
+        val lifecycle = LifecycleRegistry(mockk()).apply {
+            handleLifecycleEvent(Lifecycle.Event.ON_RESUME)
+        }
+        viewModel.animSpeed.observe({ lifecycle }) {}
+
+        // given
+        val givenProgress = 0
+
+        // when
+        viewModel.progress.value = givenProgress
+
+        // then
+        Assert.assertEquals(1, viewModel.animSpeed.value)
     }
 
 }

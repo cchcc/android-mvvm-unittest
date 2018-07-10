@@ -13,17 +13,18 @@ class E01ViewModelTest {
 
     private val viewModel by lazy { E01ViewModel() }
 
-    private fun setValues() {
-        viewModel.left.value = "1"
-        viewModel.right.value = "1"
+    private fun setValues(value: String) {
+        viewModel.left.value = value
+        viewModel.right.value = value
     }
 
     @Test
     fun plus() {
-        // when
-        setValues()
-
         // given
+        val givenVal = "1"
+        setValues(givenVal)
+
+        // when
         viewModel.plus()
 
         // then
@@ -33,10 +34,11 @@ class E01ViewModelTest {
 
     @Test
     fun clear() {
-        // when
-        setValues()
-
         // given
+        val givenVal = "1"
+        setValues(givenVal)
+
+        // when
         viewModel.clear()
 
         // then

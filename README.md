@@ -61,7 +61,7 @@ Implementation of Add, Remove and Edit actions.
 
 [Transformaions.map](https://developer.android.com/topic/libraries/architecture/livedata?hl=ko#transform_livedata) to convert strings to a simple format.
 
-Mocking instance of `Observer` with [MockK](http://mockk.io/) on unit test.
+[MockK](http://mockk.io/) for unit test.
 
 ## E05 - Interaction between 2 Fragments
 

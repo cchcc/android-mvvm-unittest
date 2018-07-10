@@ -12,36 +12,36 @@ class E03ViewModelTest {
 
     @Test
     fun add() {
-        // given
         val viewModel = E03ViewModel()
 
+        // given
         val beforeSize = viewModel.memos.value!!.size
-        val newContent = "new content"
+        val givenNewContent = "new content"
 
-        viewModel.newContent.value = newContent
+        viewModel.newContent.value = givenNewContent
 
         // when
         viewModel.add()
 
         // then
-        Assert.assertEquals(newContent, viewModel.memos.value!![0].content)
+        Assert.assertEquals(givenNewContent, viewModel.memos.value!![0].content)
         Assert.assertEquals(beforeSize + 1, viewModel.memos.value!!.size)
     }
 
     @Test
     fun remove() {
-        // given
         val viewModel = E03ViewModel()
 
+        // given
         val beforeSize = viewModel.memos.value!!.size
-        val idx = 3
-        val beforeMemo = viewModel.memos.value!![idx]
+        val givenIdxWillBeRemove = 3
+        val beforeMemo = viewModel.memos.value!![givenIdxWillBeRemove]
 
         // when
-        viewModel.remove(beforeMemo, idx)
+        viewModel.remove(beforeMemo, givenIdxWillBeRemove)
 
         // then
-        Assert.assertFalse(beforeMemo == viewModel.memos.value!![idx])
+        Assert.assertFalse(beforeMemo == viewModel.memos.value!![givenIdxWillBeRemove])
         Assert.assertEquals(beforeSize - 1, viewModel.memos.value!!.size)
     }
 

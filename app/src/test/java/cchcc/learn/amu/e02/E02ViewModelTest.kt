@@ -12,14 +12,25 @@ class E02ViewModelTest {
 
     @Test
     fun tryResult_and_applyScore() {
-        // given
         val viewModel = E02ViewModel(E02::justTrue)
 
-        viewModel.tryResult() // when
-        Assert.assertEquals(E02ViewModel.TryResult.SUCCESS, viewModel.result.value) // then
+        // given
+        // none
 
-        viewModel.applyScore() // when
-        Assert.assertEquals(1, viewModel.score.value)  // then
+        // when
+        viewModel.tryResult()
+
+        // then
+        Assert.assertEquals(E02ViewModel.TryResult.SUCCESS, viewModel.result.value)
+
+        // given
+        // none
+
+        // when
+        viewModel.applyScore()
+
+        // then
+        Assert.assertEquals(1, viewModel.score.value)
     }
 
 }
