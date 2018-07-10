@@ -8,13 +8,13 @@ import org.junit.Assert
 object ViewAssertionsEx {
     @JvmStatic
     fun isInvisible() = ViewAssertion { view, noViewFoundException ->
-        noViewFoundException?.let { throw it }
+        if (noViewFoundException != null ) throw noViewFoundException
         Assert.assertEquals(View.INVISIBLE, view.visibility)
     }
 
     @JvmStatic
     fun hasItemCountOfRecyclerView(count: Int) = ViewAssertion { view, noViewFoundException ->
-        noViewFoundException?.let { throw it }
+        if (noViewFoundException != null ) throw noViewFoundException
         val v = view as RecyclerView
         Assert.assertEquals(count, v.adapter.itemCount)
     }

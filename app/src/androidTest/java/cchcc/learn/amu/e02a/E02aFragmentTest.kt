@@ -29,12 +29,10 @@ class E02aFragmentTest {
 
     @Before
     fun setFragment() {
-
         val createKodein:() -> Kodein = {
             Kodein.lazy { import(E02aTestFragmentModule) }
         }
 
-        // given
         rule.activity.replaceFragment(E02aFragment.newInstance(createKodein))
     }
 
@@ -42,17 +40,9 @@ class E02aFragmentTest {
     @Test
     fun score_should_increase_when_success() {
         // when
+        Espresso.onView(withId(R.id.lav_result)).perform(ViewActionsEx.setSpeed(10.0f))
         Espresso.onView(withId(R.id.bt_try)).perform(ViewActions.click())
-        Espresso.onView(withId(R.id.lav_result)).perform(object : ViewAction {
-            override fun getDescription(): String = "set animation faster"
-
-            override fun getConstraints(): Matcher<View> = Matchers.any(View::class.java)
-
-            override fun perform(uiController: UiController, view: View) {
-                (view as LottieAnimationView).speed = 10.0f
-            }
-        })
-        Espresso.onView(isRoot()).perform(ViewActionsEx.waiting(1500)) // waiting to end animation
+        Espresso.onView(isRoot()).perform(ViewActionsEx.waiting(1000)) // waiting to end animation
 
         // then
         val expected = String.format(rule.activity.resources.getString(R.string.e02_score_format), 1)

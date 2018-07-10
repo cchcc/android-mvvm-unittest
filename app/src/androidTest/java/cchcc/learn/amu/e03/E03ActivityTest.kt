@@ -29,19 +29,19 @@ class E03ActivityTest {
     @Test
     fun add() {
         // given
-        val newContent = "new content"
+        val givenNewContent = "new content"
 
         // when
-        Espresso.onView(withId(R.id.et_content_new)).perform(click(), replaceText(newContent))
+        Espresso.onView(withId(R.id.et_content_new)).perform(click(), replaceText(givenNewContent))
         Espresso.onView(withId(R.id.bt_add)).perform(click())
 
         // then
         Espresso.onView(withId(R.id.rcv_contents))
                 .perform(RecyclerViewActions.actionOnItemAtPosition<E03MemoAdapter.VH>(0
                         , object : ViewAction {
-                    override fun getDescription(): String = "check added memo content is \"$newContent\""
+                    override fun getDescription(): String = "check added memo content is \"$givenNewContent\""
 
-                    override fun getConstraints(): Matcher<View> = hasDescendant(withText(newContent))
+                    override fun getConstraints(): Matcher<View> = hasDescendant(withText(givenNewContent))
 
                     override fun perform(uiController: UiController?, view: View?) {
                         @Suppress("UNCHECKED_CAST")
@@ -56,12 +56,11 @@ class E03ActivityTest {
     @Test
     fun remove() {
         // given
-        val idx = 3
-
+        val givenIdxWillBeRemoved = 3
         var beforeContent = ""
 
         Espresso.onView(withId(R.id.rcv_contents))
-                .perform(RecyclerViewActions.actionOnItemAtPosition<E03MemoAdapter.VH>(idx
+                .perform(RecyclerViewActions.actionOnItemAtPosition<E03MemoAdapter.VH>(givenIdxWillBeRemoved
                         , object : ViewAction {
                     override fun getDescription(): String = "get before content"
 
@@ -74,7 +73,7 @@ class E03ActivityTest {
 
         // when
         Espresso.onView(withId(R.id.rcv_contents))
-                .perform(RecyclerViewActions.actionOnItemAtPosition<E03MemoAdapter.VH>(idx
+                .perform(RecyclerViewActions.actionOnItemAtPosition<E03MemoAdapter.VH>(givenIdxWillBeRemoved
                         , object : ViewAction {
                     override fun getDescription(): String = "click remove"
 
@@ -89,7 +88,7 @@ class E03ActivityTest {
 
         // then
         Espresso.onView(withId(R.id.rcv_contents))
-                .perform(RecyclerViewActions.actionOnItemAtPosition<E03MemoAdapter.VH>(idx
+                .perform(RecyclerViewActions.actionOnItemAtPosition<E03MemoAdapter.VH>(givenIdxWillBeRemoved
                         , object : ViewAction {
                     override fun getDescription(): String = "check remove"
 
@@ -106,20 +105,20 @@ class E03ActivityTest {
     @Test
     fun edit() {
         // given
-        val idx = 3
-        val replaceText = "replaced!!"
+        val givenIdxWillBeEdit = 3
+        val givenReplaceText = "replaced!!"
 
 
         // when
         Espresso.onView(withId(R.id.rcv_contents))
-                .perform(RecyclerViewActions.actionOnItemAtPosition<E03MemoAdapter.VH>(idx
+                .perform(RecyclerViewActions.actionOnItemAtPosition<E03MemoAdapter.VH>(givenIdxWillBeEdit
                         , object : ViewAction {
                     override fun getDescription(): String = "get before content"
 
                     override fun getConstraints(): Matcher<View> = isDisplayed()
 
                     override fun perform(uiController: UiController, view: View) {
-                        view.findViewById<EditText>(R.id.et_content).setText(replaceText)
+                        view.findViewById<EditText>(R.id.et_content).setText(givenReplaceText)
                     }
                 }))
 
@@ -135,7 +134,7 @@ class E03ActivityTest {
 
         // then
         Espresso.onView(withId(R.id.rcv_contents))
-                .perform(RecyclerViewActions.actionOnItemAtPosition<E03MemoAdapter.VH>(idx
+                .perform(RecyclerViewActions.actionOnItemAtPosition<E03MemoAdapter.VH>(givenIdxWillBeEdit
                         , object : ViewAction {
                     override fun getDescription(): String = "check replaced text"
 
@@ -143,7 +142,7 @@ class E03ActivityTest {
 
                     override fun perform(uiController: UiController, view: View) {
                         val content = view.findViewById<TextView>(R.id.et_content).text.toString()
-                        Assert.assertEquals(replaceText, content)
+                        Assert.assertEquals(givenReplaceText, content)
                     }
                 }))
 
