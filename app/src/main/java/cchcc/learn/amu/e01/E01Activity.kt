@@ -11,12 +11,10 @@ import cchcc.learn.amu.databinding.ActivityE01Binding
 
 class E01Activity : AppCompatActivity() {
 
-    private val viewModel: E01ViewModel by lazy {
-        ViewModelProviders.of(this).get(E01ViewModel::class.java)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val viewModel = ViewModelProviders.of(this).get(E01ViewModel::class.java)
 
         DataBindingUtil.setContentView<ActivityE01Binding>(this, R.layout.activity_e01).let {
             it.setLifecycleOwner(this)
