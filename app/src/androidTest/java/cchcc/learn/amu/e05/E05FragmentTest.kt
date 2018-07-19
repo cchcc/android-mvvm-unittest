@@ -62,7 +62,7 @@ class E05FragmentTest {
     @Test
     fun observing_animSpeed_works() {
         UiThreadStatement.runOnUiThread {
-            viewModel.animSpeed.observe(fragment, Observer {} )
+            viewModel.speedOfAnim.observe(fragment, Observer {} )
         }
 
         // given
@@ -72,6 +72,6 @@ class E05FragmentTest {
         onView(withId(R.id.sb_speed)).perform(ViewActionsEx.setProgress(givenProgress))
 
         // then
-        Assert.assertEquals(3.0f, viewModel.animSpeed.value)
+        Assert.assertEquals(3.0f, viewModel.speedOfAnim.value)
     }
 }

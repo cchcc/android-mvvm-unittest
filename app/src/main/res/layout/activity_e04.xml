@@ -26,7 +26,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:text="pick contact"
-            android:onClick="@{() -> viewModel.pickContact()}"
+            android:onClick="@{_ -> viewModel.pickContact()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

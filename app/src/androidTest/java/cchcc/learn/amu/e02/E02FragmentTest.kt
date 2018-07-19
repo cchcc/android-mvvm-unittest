@@ -29,7 +29,7 @@ class E02FragmentTest {
             object : ViewModelProvider.Factory {
                 @Suppress("UNCHECKED_CAST")
                 override fun <T : ViewModel?> create(modelClass: Class<T>): T = E02ViewModel(E02::justTrue).apply {
-                    animSpeed.value = 10.0f
+                    speedOfAnim.value = 10.0f
                 } as T
             }
         }

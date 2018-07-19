@@ -42,7 +42,7 @@ class E02aFragment : Fragment(), KodeinAware {
             lav_result.playAnimation()
         })
 
-        viewModel.cleared.observe(this, Observer {
+        viewModel.clearAction.observe(this, Observer {
             lav_result.cancelAnimation()
             lav_result.progress = 0.0f
         })

@@ -28,7 +28,7 @@ fun bind_onAnimationEnd(v: LottieAnimationView, listener: LottieOnAnimationEnd) 
 
 }
 
-@BindingAdapter("animSpeed")
+@BindingAdapter("animation_speed")
 fun bind_animSpeed(v: LottieAnimationView, speed: Float) {
     v.speed = speed
 }

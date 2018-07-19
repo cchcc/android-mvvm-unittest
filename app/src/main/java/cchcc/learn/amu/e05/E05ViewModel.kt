@@ -22,6 +22,6 @@ class E05ViewModel : ViewModel() {
     }
 
     fun clear() {
-        logList.value = mutableListOf("cleared")
+        logList.value = mutableListOf("clearAction")
     }
 }

@@ -27,8 +27,8 @@
             app:lottie_autoPlay="false"
             app:lottie_loop="false"
             app:lottie_rawRes="@raw/e02_failed"
-            app:onAnimationEnd="@{() -> viewModel.applyScore()}"
-            app:animSpeed="@{viewModel.animSpeed}"/>
+            app:onAnimationEnd="@{_ -> viewModel.applyScore()}"
+            app:animation_speed="@{viewModel.speedOfAnim}"/>
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_score"
@@ -49,7 +49,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:onClick="@{() -> viewModel.clear()}"
+            android:onClick="@{_ -> viewModel.clear()}"
             android:text="clear"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/bt_try"
@@ -67,7 +67,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:onClick="@{() -> viewModel.tryResult()}"
+            android:onClick="@{_ -> viewModel.tryResult()}"
             android:text="try"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"

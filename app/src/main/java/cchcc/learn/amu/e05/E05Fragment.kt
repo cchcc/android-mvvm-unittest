@@ -34,7 +34,7 @@ class E05Fragment : Fragment() {
             getE02ViewModel()
         }
 
-        e02ViewModel.cleared.observe(this, Observer {
+        e02ViewModel.clearAction.observe(this, Observer {
             viewModel.clear()
         })
 
@@ -49,7 +49,7 @@ class E05Fragment : Fragment() {
 
         val setSpeedObserver = createObserverForAddingLine<Int>("set speed  ✕ ")
         viewModel.animSpeed.observe(this, Observer {
-            e02ViewModel.animSpeed.value = it!!.toFloat()
+            e02ViewModel.speedOfAnim.value = it!!.toFloat()
             setSpeedObserver.onChanged(it)
         })
     }
