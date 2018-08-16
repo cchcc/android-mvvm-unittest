@@ -64,6 +64,12 @@
                     android:onClick="@{() -> host.startE05()}"
                     android:text="E05 Interaction between 2 Fragments" />
 
+                <android.support.v7.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> host.startE06()}"
+                    android:text="E06 Infinite RecyclerView" />
+
             </LinearLayout>
         </ScrollView>
 

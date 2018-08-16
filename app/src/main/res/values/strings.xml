@@ -4,5 +4,6 @@
     <string name="e01_result_format">%s + %s = %s</string>
     <string name="e02_score_format">score : %d</string>
     <string name="e05_animation_speed">animation speed : ✕ %d</string>
+    <string name="e06_loading">loading</string>
 
 </resources>

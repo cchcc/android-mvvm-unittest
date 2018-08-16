@@ -71,6 +71,10 @@ A Fragment knows two `ViewModel`, so two views observe one `ViewModel`.
 
 [ListAdapter](https://developer.android.com/reference/android/support/v7/recyclerview/extensions/ListAdapter) for `RecyclerView`.
 
+## E06 - Infinite RecyclerView
+
+[Paging library](https://developer.android.com/topic/libraries/architecture/paging/)
+
 ## TODO
 
 change screen with coordinator on MVVM

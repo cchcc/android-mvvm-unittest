@@ -12,6 +12,7 @@ import cchcc.learn.amu.e02a.E02aActivity
 import cchcc.learn.amu.e03.E03Activity
 import cchcc.learn.amu.e04.E04Activity
 import cchcc.learn.amu.e05.E05Activity
+import cchcc.learn.amu.e06.E06Activity
 
 class MainActivity : AppCompatActivity() {
 
@@ -48,6 +49,10 @@ class MainActivity : AppCompatActivity() {
 
     fun startE05() {
         startActivity(Intent(this, E05Activity::class.java))
+    }
+
+    fun startE06() {
+        startActivity(Intent(this, E06Activity::class.java))
     }
 
 }
