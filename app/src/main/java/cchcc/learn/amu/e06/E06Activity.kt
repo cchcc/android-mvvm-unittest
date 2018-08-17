@@ -14,7 +14,12 @@ class E06Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val viewModel = ViewModelProviders.of(this).get(E06ViewModel::class.java)
+        @Suppress("UNCHECKED_CAST")
+        val createFactory = intent.getSerializableExtra("createVMFactory") as? () -> E06ViewModelFactory
+            ?: createVMFactory
+        val viewModelFactory = createFactory()
+
+        val viewModel = ViewModelProviders.of(this, viewModelFactory).get(E06ViewModel::class.java)
         val adapter = E06NumberAdapter(viewModel::colorizeListItem)
 
         DataBindingUtil.setContentView<ActivityE06Binding>(this, R.layout.activity_e06).also {
@@ -30,5 +35,9 @@ class E06Activity : AppCompatActivity() {
         viewModel.moveToTopAction.observe(this::getLifecycle) {
             rcv_numbers.scrollToPosition(0)
         }
+    }
+
+    companion object {
+        val createVMFactory: () -> E06ViewModelFactory = { E06ViewModelFactory() }
     }
 }

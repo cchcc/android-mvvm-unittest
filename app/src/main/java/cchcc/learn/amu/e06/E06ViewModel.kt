@@ -5,9 +5,8 @@ import cchcc.learn.amu.e06.data.E06DataRepository
 import cchcc.learn.amu.e06.data.E06Number
 import cchcc.learn.amu.util.SingleActionLiveData
 
-class E06ViewModel : ViewModel() {
-    private val repo = E06DataRepository()
-    val numLists = repo.listingThreeTimesTable()
+class E06ViewModel(private val repo: E06DataRepository) : ViewModel() {
+    val numLists by lazy { repo.listingThreeTimesTable() }
 
     val moveToTopAction = SingleActionLiveData()
 
