@@ -17,11 +17,9 @@ typealias OnListItemEvent = (E03Memo, Int) -> Unit
 class E03MemoAdapter(private val items: List<E03Memo>, val onClickRemove: OnListItemEvent) : RecyclerView.Adapter<E03MemoAdapter.VH>() {
 
     inner class VH(view: View) : RecyclerView.ViewHolder(view) {
-        var idx: Int = -1
-        lateinit var memo: E03Memo
         val content = MutableLiveData<String>()
-
-        fun onClickRemove(): Unit = this@E03MemoAdapter.onClickRemove(memo, idx)
+        
+        fun onClickRemove(): Unit = this@E03MemoAdapter.onClickRemove(items[layoutPosition], layoutPosition)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -34,15 +32,17 @@ class E03MemoAdapter(private val items: List<E03Memo>, val onClickRemove: OnList
             it.vh = vh
         }
 
-        vh.content.observe(lifecycleOwner, Observer { vh.memo.content = it ?: "" })
+        vh.content.observe(lifecycleOwner, Observer {
+            val memo = items[vh.layoutPosition]
+            memo.content = it ?: ""
+        })
         return vh
     }
 
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: VH, position: Int): Unit = with(holder) {
-        idx = position
-        memo = items[position]
+        val memo = items[position]
         content.value = memo.content
     }
 

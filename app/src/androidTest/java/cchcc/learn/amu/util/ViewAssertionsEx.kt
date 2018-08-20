@@ -16,6 +16,6 @@ object ViewAssertionsEx {
     fun hasItemCountOfRecyclerView(count: Int) = ViewAssertion { view, noViewFoundException ->
         if (noViewFoundException != null ) throw noViewFoundException
         val v = view as RecyclerView
-        Assert.assertEquals(count, v.adapter.itemCount)
+        Assert.assertEquals(count, v.adapter!!.itemCount)
     }
 }

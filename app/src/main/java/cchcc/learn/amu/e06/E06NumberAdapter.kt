@@ -12,16 +12,16 @@ import cchcc.learn.amu.databinding.ListitemE06Binding
 import cchcc.learn.amu.e06.data.E06Number
 
 class E06NumberAdapter(val colorize: (E06Number?, refreshItem: () -> Unit) -> Unit) : PagedListAdapter<E06Number, E06NumberAdapter.VH>(getDiffCallback()) {
-    inner class VH(val binding: ListitemE06Binding, var idx: Int = 0) : RecyclerView.ViewHolder(binding.root)
+    inner class VH(val binding: ListitemE06Binding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val binding = DataBindingUtil.inflate<ListitemE06Binding>(LayoutInflater.from(parent.context), R.layout.listitem_e06, parent, false)
         val vh = VH(binding)
         binding.onClick = View.OnClickListener {
-            val item = getItem(vh.idx)
+            val item = getItem(vh.layoutPosition)
             if (item != null) {
                 val refreshItem = {
-                    notifyItemChanged(vh.idx)
+                    notifyItemChanged(vh.layoutPosition)
                 }
 
                 this@E06NumberAdapter.colorize(item, refreshItem)
@@ -32,7 +32,6 @@ class E06NumberAdapter(val colorize: (E06Number?, refreshItem: () -> Unit) -> Un
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.binding.num = getItem(position)
-        holder.idx = position
     }
 
 
