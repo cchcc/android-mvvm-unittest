@@ -33,7 +33,7 @@ class UserPermission(private val activity: Activity, vararg permissions: String)
             isGrantedCallback = isGranted
             notGrantedCallback = notGranted
             val requestCode = Math.abs((activity.hashCode() + isGranted.hashCode()).toShort().toInt())
-            permissions.put(requestCode, this)
+            activity.permissions.put(requestCode, this)
             ActivityCompat.requestPermissions(activity, notGrantedPermissions, requestCode)
         }
     }
@@ -43,7 +43,7 @@ class UserPermission(private val activity: Activity, vararg permissions: String)
     override fun toString(): String = "${javaClass.simpleName} ${Arrays.toString(perms)}"
 }
 
-private val permissions by lazy { SparseArray<UserPermission>() }
+private val Activity.permissions by lazy { SparseArray<UserPermission>() }
 
 fun Activity.permissionOf(vararg permissions: String): UserPermission = UserPermission(this, *permissions)
 
