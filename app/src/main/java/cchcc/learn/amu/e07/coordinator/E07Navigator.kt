@@ -1,0 +1,39 @@
+package cchcc.learn.amu.e07.coordinator
+
+import android.content.Intent
+import android.support.v4.app.ActivityOptionsCompat
+import android.support.v4.view.ViewCompat
+import android.support.v7.app.AppCompatActivity
+import android.view.View
+import cchcc.learn.amu.e07.E07WordActivity
+import java.lang.IllegalStateException
+
+interface Navigator {
+    fun navigateWord()
+    fun navigateBackToWordList()
+}
+
+class E07Navigator(val activity: AppCompatActivity): Navigator {
+
+    var navOptionsWord: Triple<View, String, Float>? = null
+
+    override fun navigateWord() {
+        val (sharedElement, text, startSize) = navOptionsWord
+                ?: throw IllegalStateException("set navigator.navOptionsWord first")
+
+        navOptionsWord = null  // avoid memory leak
+
+        val transitionName = ViewCompat.getTransitionName(sharedElement)!!
+        val bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, sharedElement, transitionName).toBundle()
+
+        activity.startActivity(Intent(activity, E07WordActivity::class.java)
+                .putExtra("text", text)
+                .putExtra("transitionName", transitionName)
+                .putExtra("startSize", startSize)
+                , bundle)
+    }
+
+    override fun navigateBackToWordList() {
+        activity.onBackPressed()
+    }
+}

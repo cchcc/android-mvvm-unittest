@@ -75,6 +75,8 @@ A Fragment knows two `ViewModel`, so two views observe one `ViewModel`.
 
 [Paging library](https://developer.android.com/topic/libraries/architecture/paging/)
 
-## TODO
+## E06 - Change Screen
 
-change screen with coordinator on MVVM
+Using Coordinator for `ViewModel`. By doing so, changing screen logic are in one place.
+
+[Transition Framework](https://developer.android.com/training/transitions/start-activity)

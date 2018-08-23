@@ -3,6 +3,7 @@ package cchcc.learn.amu
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.app.AppCompatActivity
 import cchcc.learn.amu.databinding.ActivityMainBinding
 import cchcc.learn.amu.e01.E01Activity
@@ -13,6 +14,7 @@ import cchcc.learn.amu.e03.E03Activity
 import cchcc.learn.amu.e04.E04Activity
 import cchcc.learn.amu.e05.E05Activity
 import cchcc.learn.amu.e06.E06Activity
+import cchcc.learn.amu.e07.E07WordListActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -53,6 +55,11 @@ class MainActivity : AppCompatActivity() {
 
     fun startE06() {
         startActivity(Intent(this, E06Activity::class.java))
+    }
+
+    fun startE07() {
+        startActivity(Intent(this, E07WordListActivity::class.java)
+            ,ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle())
     }
 
 }

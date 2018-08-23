@@ -70,6 +70,12 @@
                     android:onClick="@{() -> host.startE06()}"
                     android:text="E06 Infinite RecyclerView" />
 
+                <android.support.v7.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> host.startE07()}"
+                    android:text="E07 Change Screen" />
+
             </LinearLayout>
         </ScrollView>
 

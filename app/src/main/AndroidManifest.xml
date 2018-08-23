@@ -26,6 +26,8 @@
         <activity android:name=".e04.E04Activity" />
         <activity android:name=".e05.E05Activity" />
         <activity android:name=".e06.E06Activity" />
+        <activity android:name=".e07.E07WordListActivity" />
+        <activity android:name=".e07.E07WordActivity" />
     </application>
 
 </manifest>

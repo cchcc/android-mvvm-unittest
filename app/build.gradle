@@ -40,6 +40,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$android_support_version"
     implementation "com.android.support:design:$android_support_version"
     implementation "com.android.support:recyclerview-v7:$android_support_version"
+    implementation "com.android.support:cardview-v7:$android_support_version"
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation 'com.airbnb.android:lottie:2.5.6'
