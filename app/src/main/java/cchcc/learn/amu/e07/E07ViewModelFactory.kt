@@ -12,6 +12,6 @@ class E07ViewModelFactory(private val navigator: E07Navigator) : ViewModelProvid
     override fun <T : ViewModel?> create(modelClass: Class<T>): T = when (modelClass) {
         E07WordListViewModel::class.java -> E07WordListViewModel(E07WordListCoordinator(navigator))
         E07WordViewModel::class.java -> E07WordViewModel(E07WordCoordinator(navigator))
-        else -> throw IllegalArgumentException("")
+        else -> throw IllegalArgumentException("$modelClass is not registered ViewModel")
     } as T
 }
