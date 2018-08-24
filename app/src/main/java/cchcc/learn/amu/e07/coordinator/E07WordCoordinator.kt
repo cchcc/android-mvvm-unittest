@@ -1,5 +1,5 @@
 package cchcc.learn.amu.e07.coordinator
 
-class E07WordCoordinator(navigator: E07Navigator) {
-    val backToWordListScreen = navigator::navigateBackToWordList
+class E07WordCoordinator(var navigator: E07Navigator? = null) {
+    fun backToWordListScreen() = navigator!!.navigateBackToWordList()
 }

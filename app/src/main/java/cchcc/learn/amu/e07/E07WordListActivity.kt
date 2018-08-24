@@ -12,20 +12,23 @@ import android.view.View
 import android.widget.TextView
 import cchcc.learn.amu.R
 import cchcc.learn.amu.e07.coordinator.E07NavigatorImpl
-import cchcc.learn.amu.e07.coordinator.navigator
 import kotlinx.android.synthetic.main.activity_e07_wordlist.*
 
 class E07WordListActivity : AppCompatActivity() {
 
     private val viewModel by lazy {
-        ViewModelProviders.of(this, E07ViewModelFactory(navigator))
-                .get(E07WordListViewModel::class.java)
+        ViewModelProviders
+                .of(this, E07ViewModelFactory())
+                .get(E07WordListViewModel::class.java).apply {
+                    coordinator.navigator = navigator
+                }
     }
+
+    private val navigator by lazy { E07NavigatorImpl(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        navigator.activity = this
         setContentView(R.layout.activity_e07_wordlist)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -43,11 +46,6 @@ class E07WordListActivity : AppCompatActivity() {
         }
 
         viewModel.wordList.observe(this::getLifecycle, adapter::submitList)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        navigator.activity = null
     }
 
     private fun goDetail(text: String, sharedElement: View) {

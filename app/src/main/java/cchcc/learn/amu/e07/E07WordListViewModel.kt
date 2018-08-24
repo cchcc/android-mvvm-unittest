@@ -4,17 +4,17 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import cchcc.learn.amu.e07.coordinator.E07WordListCoordinator
 
-class E07WordListViewModel(var coordinator: E07WordListCoordinator?) : ViewModel() {
+class E07WordListViewModel(val coordinator: E07WordListCoordinator) : ViewModel() {
     val wordList = MutableLiveData<List<String>>().apply {
         value = sampleText.split(" ")
     }
 
     fun goWordScreen() {
-        coordinator!!.goWordScreen()
+        coordinator.goWordScreen()
     }
 
     override fun onCleared() {
-        coordinator = null  // avoid memory leak
+        coordinator.navigator = null  // avoid memory leak
     }
 
     companion object {

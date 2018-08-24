@@ -13,8 +13,7 @@ interface E07Navigator {
     fun navigateBackToWordList()
 }
 
-class E07NavigatorImpl: E07Navigator {
-    var activity: AppCompatActivity? = null
+class E07NavigatorImpl(val activity: AppCompatActivity) : E07Navigator {
 
     var navOptionsWord: Triple<View, String, Float>? = null
 
@@ -25,9 +24,9 @@ class E07NavigatorImpl: E07Navigator {
         navOptionsWord = null  // avoid memory leak
 
         val transitionName = ViewCompat.getTransitionName(sharedElement)!!
-        val bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity!!, sharedElement, transitionName).toBundle()
+        val bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, sharedElement, transitionName).toBundle()
 
-        activity!!.startActivity(Intent(activity, E07WordActivity::class.java)
+        activity.startActivity(Intent(activity, E07WordActivity::class.java)
                 .putExtra("text", text)
                 .putExtra("transitionName", transitionName)
                 .putExtra("startSize", startSize)
@@ -35,8 +34,6 @@ class E07NavigatorImpl: E07Navigator {
     }
 
     override fun navigateBackToWordList() {
-        activity!!.onBackPressed()
+        activity.onBackPressed()
     }
 }
-
-val AppCompatActivity.navigator: E07NavigatorImpl by lazy { E07NavigatorImpl() }

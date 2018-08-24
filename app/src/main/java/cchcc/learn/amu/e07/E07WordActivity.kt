@@ -12,21 +12,24 @@ import android.view.MenuItem
 import cchcc.learn.amu.R
 import cchcc.learn.amu.databinding.ActivityE07WordBinding
 import cchcc.learn.amu.e07.coordinator.E07NavigatorImpl
-import cchcc.learn.amu.e07.coordinator.navigator
 import cchcc.learn.amu.util.ChangeTextSize
 import kotlinx.android.synthetic.main.activity_e07_word.*
 
 class E07WordActivity : AppCompatActivity() {
 
     private val viewModel by lazy {
-        ViewModelProviders.of(this, E07ViewModelFactory(navigator))
-                .get(E07WordViewModel::class.java)
+        ViewModelProviders
+                .of(this, E07ViewModelFactory())
+                .get(E07WordViewModel::class.java).apply {
+                    coordinator.navigator = navigator
+                }
     }
+
+    private val navigator by lazy { E07NavigatorImpl(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        navigator.activity = this
         DataBindingUtil.setContentView<ActivityE07WordBinding>(this, R.layout.activity_e07_word).let {
             it.viewModel = viewModel
         }
@@ -52,11 +55,6 @@ class E07WordActivity : AppCompatActivity() {
             }
 
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        navigator.activity = null
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
