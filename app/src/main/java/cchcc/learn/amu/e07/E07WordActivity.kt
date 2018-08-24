@@ -11,14 +11,14 @@ import android.transition.TransitionSet
 import android.view.MenuItem
 import cchcc.learn.amu.R
 import cchcc.learn.amu.databinding.ActivityE07WordBinding
-import cchcc.learn.amu.e07.coordinator.E07Navigator
+import cchcc.learn.amu.e07.coordinator.E07NavigatorImpl
 import cchcc.learn.amu.util.ChangeTextSize
 import kotlinx.android.synthetic.main.activity_e07_word.*
 
 class E07WordActivity : AppCompatActivity() {
 
     private val viewModel by lazy {
-        ViewModelProviders.of(this, E07ViewModelFactory(E07Navigator(this)))
+        ViewModelProviders.of(this, E07ViewModelFactory(E07NavigatorImpl(this)))
                 .get(E07WordViewModel::class.java)
     }
 

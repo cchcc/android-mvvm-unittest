@@ -4,9 +4,9 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import cchcc.learn.amu.e07.coordinator.E07WordCoordinator
 import cchcc.learn.amu.e07.coordinator.E07WordListCoordinator
-import cchcc.learn.amu.e07.coordinator.Navigator
+import cchcc.learn.amu.e07.coordinator.E07Navigator
 
-class E07ViewModelFactory(private val navigator: Navigator) : ViewModelProvider.Factory {
+class E07ViewModelFactory(private val navigator: E07Navigator) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T = when (modelClass) {

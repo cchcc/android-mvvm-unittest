@@ -8,12 +8,12 @@ import android.view.View
 import cchcc.learn.amu.e07.E07WordActivity
 import java.lang.IllegalStateException
 
-interface Navigator {
+interface E07Navigator {
     fun navigateWord()
     fun navigateBackToWordList()
 }
 
-class E07Navigator(val activity: AppCompatActivity): Navigator {
+class E07NavigatorImpl(val activity: AppCompatActivity): E07Navigator {
 
     var navOptionsWord: Triple<View, String, Float>? = null
 

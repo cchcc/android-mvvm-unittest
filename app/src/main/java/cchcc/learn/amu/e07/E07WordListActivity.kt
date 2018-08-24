@@ -11,12 +11,12 @@ import android.transition.TransitionSet
 import android.view.View
 import android.widget.TextView
 import cchcc.learn.amu.R
-import cchcc.learn.amu.e07.coordinator.E07Navigator
+import cchcc.learn.amu.e07.coordinator.E07NavigatorImpl
 import kotlinx.android.synthetic.main.activity_e07_wordlist.*
 
 class E07WordListActivity : AppCompatActivity() {
 
-    private val navigator = E07Navigator(this)
+    private val navigator = E07NavigatorImpl(this)
 
     private val viewModel by lazy {
         ViewModelProviders.of(this, E07ViewModelFactory(navigator))
