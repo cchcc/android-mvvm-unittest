@@ -31,6 +31,7 @@ class E07WordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         DataBindingUtil.setContentView<ActivityE07WordBinding>(this, R.layout.activity_e07_word).let {
+            it.setLifecycleOwner(this)
             it.viewModel = viewModel
         }
 

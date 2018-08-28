@@ -23,6 +23,7 @@ class E06Activity : AppCompatActivity() {
         val adapter = E06NumberAdapter(viewModel::colorizeListItem)
 
         DataBindingUtil.setContentView<ActivityE06Binding>(this, R.layout.activity_e06).also {
+            it.setLifecycleOwner(this)
             it.viewModel = viewModel
         }
 
