@@ -24,7 +24,7 @@ Base on [E01](#e01---simple-activity)
 
 Simple [Data Binding](https://developer.android.com/topic/libraries/data-binding/),
 [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel),
-[LiveData](https://developer.android.com/topic/libraries/architecture/livedata) on an Fragment.
+[LiveData](https://developer.android.com/topic/libraries/architecture/livedata) on a Fragment.
 
 Some animations with [lottie](http://airbnb.io/lottie/)(resources by [Eddy Gann](https://www.lottiefiles.com/ed117)).
 
@@ -51,7 +51,7 @@ Based on [E02](#e02---simple-fragment-with-some-animations).
 
 Simple [Data Binding](https://developer.android.com/topic/libraries/data-binding/),
 [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel),
-[LiveData](https://developer.android.com/topic/libraries/architecture/livedata) on an `RecyclerView`.
+[LiveData](https://developer.android.com/topic/libraries/architecture/livedata) on a `RecyclerView`.
 
 Implementation of Add, Remove and Edit actions.
 
