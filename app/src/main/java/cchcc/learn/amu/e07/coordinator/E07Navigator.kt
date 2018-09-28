@@ -1,9 +1,9 @@
 package cchcc.learn.amu.e07.coordinator
 
 import android.content.Intent
-import android.support.v4.app.ActivityOptionsCompat
-import android.support.v4.view.ViewCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import cchcc.learn.amu.e07.E07WordActivity
 import java.lang.IllegalStateException

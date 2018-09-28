@@ -1,14 +1,14 @@
 package cchcc.learn.amu.e03
 
-import android.support.test.espresso.Espresso
-import android.support.test.espresso.UiController
-import android.support.test.espresso.ViewAction
-import android.support.test.espresso.action.ViewActions.click
-import android.support.test.espresso.action.ViewActions.replaceText
-import android.support.test.espresso.contrib.RecyclerViewActions
-import android.support.test.espresso.matcher.ViewMatchers.*
-import android.support.test.rule.ActivityTestRule
-import android.support.test.runner.AndroidJUnit4
+import androidx.test.espresso.Espresso
+import androidx.test.espresso.UiController
+import androidx.test.espresso.ViewAction
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.replaceText
+import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.rule.ActivityTestRule
+import androidx.test.runner.AndroidJUnit4
 import android.view.View
 import android.view.ViewConfiguration
 import android.widget.EditText

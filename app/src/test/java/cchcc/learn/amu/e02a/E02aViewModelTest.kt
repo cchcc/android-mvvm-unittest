@@ -1,6 +1,6 @@
 package cchcc.learn.amu.e02a
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import cchcc.learn.amu.e02.E02ViewModel
 import cchcc.learn.amu.e02a.di.E02aTestViewModelModule
 import org.junit.Assert

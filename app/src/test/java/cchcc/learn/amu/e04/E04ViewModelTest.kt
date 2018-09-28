@@ -1,8 +1,8 @@
 package cchcc.learn.amu.e04
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
-import android.arch.lifecycle.Lifecycle
-import android.arch.lifecycle.LifecycleRegistry
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleRegistry
 import io.mockk.mockk
 import org.junit.*
 

@@ -11,7 +11,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -35,16 +35,13 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
-    def android_support_version = "28.0.0-rc01"
-    implementation "com.android.support:support-v4:$android_support_version"
-    implementation "com.android.support:appcompat-v7:$android_support_version"
-    implementation "com.android.support:design:$android_support_version"
-    implementation "com.android.support:recyclerview-v7:$android_support_version"
-    implementation "com.android.support:cardview-v7:$android_support_version"
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
 
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
     implementation 'com.airbnb.android:lottie:2.5.6'
-    kapt "com.android.databinding:compiler:3.1.4"
 
     testImplementation 'junit:junit:4.12'
 
@@ -52,24 +49,24 @@ dependencies {
     testImplementation "io.mockk:mockk:$mock_version"
     androidTestImplementation "io.mockk:mockk-android:$mock_version"
 
-    def espresso_version = "3.0.2"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_version"
-    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$espresso_version"
+    def espresso_version = "3.1.0-alpha4"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
 
-    def support_test_version = "1.0.2"
-    androidTestImplementation "com.android.support.test:runner:$support_test_version"
-    androidTestImplementation "com.android.support.test:rules:$support_test_version"
+    def support_test_version = "1.1.0-alpha4"
+    androidTestImplementation "androidx.test:runner:$support_test_version"
+    androidTestImplementation "androidx.test:rules:$support_test_version"
 
-    def lifecycle_version = "1.1.1"
-    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
-    annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
-    testImplementation "android.arch.core:core-testing:$lifecycle_version"
+    def lifecycle_version = "2.0.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
 
     def kodein_version = "5.0.0"
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
     implementation "org.kodein.di:kodein-di-framework-android:$kodein_version"
 
-    def paging_version = "1.0.1"
-    implementation "android.arch.paging:runtime:$paging_version"
-    testImplementation "android.arch.paging:common:$paging_version"
+    def paging_version = "2.0.0-rc01"
+    implementation "androidx.paging:paging-runtime:$paging_version"
+    testImplementation "androidx.paging:paging-common:$paging_version"
 }

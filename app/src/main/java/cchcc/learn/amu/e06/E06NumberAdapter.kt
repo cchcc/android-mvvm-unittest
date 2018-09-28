@@ -1,9 +1,9 @@
 package cchcc.learn.amu.e06
 
-import android.arch.paging.PagedListAdapter
-import android.databinding.DataBindingUtil
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.RecyclerView
+import androidx.paging.PagedListAdapter
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +12,7 @@ import cchcc.learn.amu.databinding.ListitemE06Binding
 import cchcc.learn.amu.e06.data.E06Number
 
 class E06NumberAdapter(val colorize: (E06Number?, refreshItem: () -> Unit) -> Unit) : PagedListAdapter<E06Number, E06NumberAdapter.VH>(getDiffCallback()) {
-    inner class VH(val binding: ListitemE06Binding) : RecyclerView.ViewHolder(binding.root)
+    inner class VH(val binding: ListitemE06Binding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val binding = DataBindingUtil.inflate<ListitemE06Binding>(LayoutInflater.from(parent.context), R.layout.listitem_e06, parent, false)

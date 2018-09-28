@@ -1,9 +1,9 @@
 package cchcc.learn.amu
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.annotation.RestrictTo
-import android.support.v4.app.Fragment
+import androidx.annotation.RestrictTo
+import androidx.fragment.app.Fragment
 import android.widget.FrameLayout
 
 @RestrictTo(RestrictTo.Scope.TESTS)
@@ -21,13 +21,13 @@ class FragmentTestActivity : AppCompatActivity() {
         setContentView(v)
     }
 
-    inline fun <reified T: Fragment>replaceFragment(f: T, tag: String = T::class.java.name) {
+    inline fun <reified T: androidx.fragment.app.Fragment>replaceFragment(f: T, tag: String = T::class.java.name) {
         supportFragmentManager.beginTransaction()
                 .replace(R.id.fl_main, f, tag)
                 .commit()
     }
 
-    inline fun <reified T: Fragment>addFragment(f: T, tag: String = T::class.java.name) {
+    inline fun <reified T: androidx.fragment.app.Fragment>addFragment(f: T, tag: String = T::class.java.name) {
         supportFragmentManager.beginTransaction()
                 .add(R.id.fl_main, f, tag)
                 .commit()

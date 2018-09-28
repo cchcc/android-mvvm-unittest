@@ -1,8 +1,8 @@
 package cchcc.learn.amu.e02a.di
 
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
-import android.support.v4.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.Fragment
 import cchcc.learn.amu.e02.E02ViewModel
 import cchcc.learn.amu.e02a.E02aViewModelFactory
 import org.kodein.di.Kodein
@@ -28,6 +28,6 @@ val E02aFragmentModule = Kodein.Module {
         E02aViewModelFactory()
     }
     bind<E02ViewModel>() with provider {
-        ViewModelProviders.of(receiver as Fragment, instance()).get(E02ViewModel::class.java)
+        ViewModelProviders.of(receiver as androidx.fragment.app.Fragment, instance()).get(E02ViewModel::class.java)
     }
 }

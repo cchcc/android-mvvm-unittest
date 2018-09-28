@@ -1,10 +1,10 @@
 package cchcc.learn.amu.e03
 
-import android.arch.lifecycle.LifecycleOwner
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.Observer
-import android.databinding.DataBindingUtil
-import android.support.v7.widget.RecyclerView
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,9 +14,9 @@ import cchcc.learn.amu.e03.data.E03Memo
 
 typealias OnListItemEvent = (E03Memo, Int) -> Unit
 
-class E03MemoAdapter(private val items: List<E03Memo>, val onClickRemove: OnListItemEvent) : RecyclerView.Adapter<E03MemoAdapter.VH>() {
+class E03MemoAdapter(private val items: List<E03Memo>, val onClickRemove: OnListItemEvent) : androidx.recyclerview.widget.RecyclerView.Adapter<E03MemoAdapter.VH>() {
 
-    inner class VH(view: View) : RecyclerView.ViewHolder(view) {
+    inner class VH(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
         val content = MutableLiveData<String>()
         
         fun onClickRemove(): Unit = this@E03MemoAdapter.onClickRemove(items[layoutPosition], layoutPosition)

@@ -1,8 +1,8 @@
 package cchcc.learn.amu.e01a
 
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import cchcc.learn.amu.R
 import cchcc.learn.amu.databinding.ActivityE01aBinding

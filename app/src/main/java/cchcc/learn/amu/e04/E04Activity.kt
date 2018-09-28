@@ -2,13 +2,13 @@ package cchcc.learn.amu.e04
 
 import android.Manifest
 import android.app.Activity
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import android.provider.ContactsContract
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import cchcc.learn.amu.R
 import cchcc.learn.amu.databinding.ActivityE04Binding
 import cchcc.learn.amu.util.activityResult

@@ -1,7 +1,7 @@
 package cchcc.learn.amu.e07
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import cchcc.learn.amu.e07.coordinator.E07WordListCoordinator
 
 class E07WordListViewModel(val coordinator: E07WordListCoordinator) : ViewModel() {

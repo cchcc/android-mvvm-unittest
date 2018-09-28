@@ -11,12 +11,12 @@
             type="cchcc.learn.amu.e03.E03ViewModel" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".e03.E03Activity">
 
-        <android.support.v7.widget.AppCompatImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/bt_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.v7.widget.AppCompatEditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_content_new"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_contents"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -55,7 +55,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_content_new" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </layout>

@@ -1,6 +1,6 @@
 package cchcc.learn.amu.e01
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import org.junit.Assert
 import org.junit.Rule
 import org.junit.Test

@@ -1,6 +1,6 @@
 package cchcc.learn.amu.e05
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import cchcc.learn.amu.R
 import cchcc.learn.amu.e02.E02Fragment

@@ -1,10 +1,10 @@
 package cchcc.learn.amu.e01
 
-import android.support.test.espresso.Espresso
-import android.support.test.espresso.action.ViewActions
-import android.support.test.espresso.matcher.ViewMatchers.withId
-import android.support.test.rule.ActivityTestRule
-import android.support.test.runner.AndroidJUnit4
+import androidx.test.espresso.Espresso
+import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.rule.ActivityTestRule
+import androidx.test.runner.AndroidJUnit4
 import cchcc.learn.amu.R
 import cchcc.learn.amu.util.ViewAssertionsEx
 import org.junit.Rule

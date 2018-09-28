@@ -1,10 +1,10 @@
 package cchcc.learn.amu.e07
 
 import android.annotation.SuppressLint
-import android.support.v4.view.ViewCompat
-import android.support.v7.recyclerview.extensions.ListAdapter
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.RecyclerView
+import androidx.core.view.ViewCompat
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +12,7 @@ import cchcc.learn.amu.R
 import kotlinx.android.synthetic.main.listitem_e07.view.*
 
 class E07WordListAdapter(val goWordScreen: (String, View) -> Unit) : ListAdapter<String, E07WordListAdapter.VH>(getDiffCallback()) {
-    class VH(view: View) : RecyclerView.ViewHolder(view)
+    class VH(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)
 
     private val numberIter = generateSequence(0) { it + 1 }.iterator()
 

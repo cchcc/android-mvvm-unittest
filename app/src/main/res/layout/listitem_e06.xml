@@ -14,14 +14,14 @@
             type="cchcc.learn.amu.e06.data.E06Number" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         android:onClick="@{onClick}"
         >
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,5 +61,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

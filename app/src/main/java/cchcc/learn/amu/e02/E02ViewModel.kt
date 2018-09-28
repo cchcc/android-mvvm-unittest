@@ -1,7 +1,7 @@
 package cchcc.learn.amu.e02
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
 class E02ViewModel(private val nextBoolean: () -> Boolean) : ViewModel() {
 

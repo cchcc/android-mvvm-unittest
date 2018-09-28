@@ -1,10 +1,10 @@
 package cchcc.learn.amu.e07
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.os.Build
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import android.transition.Fade
 import android.transition.Slide
 import android.transition.TransitionSet
@@ -41,7 +41,7 @@ class E07WordListActivity : AppCompatActivity() {
         val adapter = E07WordListAdapter(::goDetail)
 
         rcv_list.let {
-            it.layoutManager = GridLayoutManager(this, 2)
+            it.layoutManager = androidx.recyclerview.widget.GridLayoutManager(this, 2)
             it.adapter = adapter
         }
 

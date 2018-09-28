@@ -10,12 +10,12 @@
             type="cchcc.learn.amu.e05.E05ViewModel" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".e05.E05Fragment">
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_anim_speed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.v7.widget.AppCompatSeekBar
+        <androidx.appcompat.widget.AppCompatSeekBar
             android:id="@+id/sb_speed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             android:progress="@={viewModel.progress}"
             app:layout_constraintTop_toBottomOf="@id/tv_anim_speed" />
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_log"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -51,6 +51,6 @@
             app:layout_constraintTop_toBottomOf="@id/sb_speed"
             tools:listitem="@layout/listitem_e05" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

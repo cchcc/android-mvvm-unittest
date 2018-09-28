@@ -1,7 +1,7 @@
 package cchcc.learn.amu.e02a
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import cchcc.learn.amu.e02.E02ViewModel
 import cchcc.learn.amu.e02a.di.E02aViewModelModule
 import org.kodein.di.Kodein

@@ -1,8 +1,8 @@
 package cchcc.learn.amu.e06.data
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.paging.LivePagedListBuilder
-import android.arch.paging.PagedList
+import androidx.lifecycle.MutableLiveData
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
 
 class E06DataRepository {
     private val dataSourceLiveData = MutableLiveData<E06ThreeTimesTableDataSource>()

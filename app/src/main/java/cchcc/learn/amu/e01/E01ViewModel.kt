@@ -1,7 +1,7 @@
 package cchcc.learn.amu.e01
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
 class E01ViewModel : ViewModel() {
     val left = MutableLiveData<String>()

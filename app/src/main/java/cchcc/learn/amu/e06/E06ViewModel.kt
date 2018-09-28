@@ -1,6 +1,6 @@
 package cchcc.learn.amu.e06
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import cchcc.learn.amu.e06.data.E06DataRepository
 import cchcc.learn.amu.e06.data.E06Number
 import cchcc.learn.amu.util.SingleActionLiveData

@@ -1,6 +1,6 @@
 package cchcc.learn.amu.util
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import android.os.Looper
 
 open class CallableLiveData<T> : LiveData<T>() {

@@ -1,9 +1,9 @@
 package cchcc.learn.amu.e02a
 
-import android.arch.lifecycle.Observer
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +17,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance
 import java.io.Serializable
 
-class E02aFragment : Fragment(), KodeinAware {
+class E02aFragment : androidx.fragment.app.Fragment(), KodeinAware {
 
     // to getting kodein is usually done by closestKodein() that is declared dependencies from parent(Activity, Application) layer.
     override val kodein: Kodein by lazy {

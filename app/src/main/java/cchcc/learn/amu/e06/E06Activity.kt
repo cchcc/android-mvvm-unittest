@@ -1,10 +1,10 @@
 package cchcc.learn.amu.e06
 
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import cchcc.learn.amu.R
 import cchcc.learn.amu.databinding.ActivityE06Binding
 import kotlinx.android.synthetic.main.activity_e06.*
@@ -28,7 +28,7 @@ class E06Activity : AppCompatActivity() {
         }
 
         rcv_numbers.also {
-            it.layoutManager = LinearLayoutManager(this)
+            it.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
             it.adapter = adapter
         }
 

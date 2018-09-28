@@ -1,11 +1,11 @@
 package cchcc.learn.amu.e05
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +15,7 @@ import cchcc.learn.amu.e02.E02ViewModel
 import kotlinx.android.synthetic.main.fragment_e05.*
 import java.io.Serializable
 
-class E05Fragment : Fragment() {
+class E05Fragment : androidx.fragment.app.Fragment() {
 
     private val viewModel: E05ViewModel by lazy { ViewModelProviders.of(this).get(E05ViewModel::class.java) }
     private val adapter = E05LogListAdapter()
@@ -63,7 +63,7 @@ class E05Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         rcv_log.adapter = adapter
-        rcv_log.layoutManager = LinearLayoutManager(context)
+        rcv_log.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
     }
 
     companion object {

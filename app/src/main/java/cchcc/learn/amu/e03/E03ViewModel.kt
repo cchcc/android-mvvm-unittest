@@ -1,8 +1,8 @@
 package cchcc.learn.amu.e03
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import cchcc.learn.amu.e03.data.E03DataRepository
 import cchcc.learn.amu.e03.data.E03Memo
 import cchcc.learn.amu.e03.data.E03MemoRepository

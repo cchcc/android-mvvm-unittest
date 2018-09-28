@@ -10,7 +10,7 @@
             type="cchcc.learn.amu.e02.E02ViewModel" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".e02.E02Fragment">
@@ -30,7 +30,7 @@
             app:onAnimationEnd="@{_ -> viewModel.applyScore()}"
             app:animation_speed="@{viewModel.speedOfAnim}"/>
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lav_result" />
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_clear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_score" />
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_try"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,5 +76,5 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_score" />
 
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,7 +1,6 @@
 package cchcc.learn.amu.e06.data
 
-import android.arch.paging.PageKeyedDataSource
-import java.util.concurrent.ExecutorService
+import androidx.paging.PageKeyedDataSource
 
 class E06ThreeTimesTableDataSource() : PageKeyedDataSource<Int, E06Number>() {
 

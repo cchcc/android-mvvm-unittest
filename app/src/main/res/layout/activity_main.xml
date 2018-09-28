@@ -8,7 +8,7 @@
             type="cchcc.learn.amu.MainActivity" />
     </data>
 
-    <android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
@@ -22,55 +22,55 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <android.support.v7.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="@{() -> host.startE01()}"
                     android:text="E01 simple activity" />
 
-                <android.support.v7.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="@{() -> host.startE01a()}"
                     android:text="E01a simple activity And Two-way binding" />
 
-                <android.support.v7.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="@{() -> host.startE02()}"
                     android:text="E02 simple fragment" />
 
-                <android.support.v7.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="@{() -> host.startE02a()}"
                     android:text="E02a simple fragment and DI" />
 
-                <android.support.v7.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="@{() -> host.startE03()}"
                     android:text="E03 RecyclerView" />
 
-                <android.support.v7.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="@{() -> host.startE04()}"
                     android:text="E04 Request Permission" />
 
-                <android.support.v7.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="@{() -> host.startE05()}"
                     android:text="E05 Interaction between 2 Fragments" />
 
-                <android.support.v7.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="@{() -> host.startE06()}"
                     android:text="E06 Infinite RecyclerView" />
 
-                <android.support.v7.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="@{() -> host.startE07()}"
@@ -80,5 +80,5 @@
         </ScrollView>
 
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

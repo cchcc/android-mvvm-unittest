@@ -1,11 +1,11 @@
 package cchcc.learn.amu.e07
 
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import android.os.Build
 import android.os.Bundle
-import android.support.v4.view.ViewCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.transition.ChangeBounds
 import android.transition.TransitionSet
 import android.view.MenuItem

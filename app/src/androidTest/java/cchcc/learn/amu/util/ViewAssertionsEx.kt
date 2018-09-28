@@ -1,7 +1,7 @@
 package cchcc.learn.amu.util
 
-import android.support.test.espresso.ViewAssertion
-import android.support.v7.widget.RecyclerView
+import androidx.test.espresso.ViewAssertion
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import org.junit.Assert
 
@@ -15,7 +15,7 @@ object ViewAssertionsEx {
     @JvmStatic
     fun hasItemCountOfRecyclerView(count: Int) = ViewAssertion { view, noViewFoundException ->
         if (noViewFoundException != null ) throw noViewFoundException
-        val v = view as RecyclerView
+        val v = view as androidx.recyclerview.widget.RecyclerView
         Assert.assertEquals(count, v.adapter!!.itemCount)
     }
 }

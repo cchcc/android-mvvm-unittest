@@ -1,13 +1,13 @@
 package cchcc.learn.amu.e02
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
-import android.support.test.espresso.Espresso
-import android.support.test.espresso.action.ViewActions
-import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.matcher.ViewMatchers.*
-import android.support.test.rule.ActivityTestRule
-import android.support.test.runner.AndroidJUnit4
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.test.espresso.Espresso
+import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.rule.ActivityTestRule
+import androidx.test.runner.AndroidJUnit4
 import cchcc.learn.amu.FragmentTestActivity
 import cchcc.learn.amu.R
 import cchcc.learn.amu.util.ViewActionsEx

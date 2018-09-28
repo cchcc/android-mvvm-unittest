@@ -1,6 +1,6 @@
 package cchcc.learn.amu.e02
 
-import android.support.annotation.RestrictTo
+import androidx.annotation.RestrictTo
 
 @RestrictTo(RestrictTo.Scope.TESTS)
 object E02 {

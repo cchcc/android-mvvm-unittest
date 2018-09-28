@@ -1,7 +1,7 @@
 package cchcc.learn.amu.e02.binding
 
 import android.animation.Animator
-import android.databinding.BindingAdapter
+import androidx.databinding.BindingAdapter
 import android.util.Log
 import com.airbnb.lottie.LottieAnimationView
 

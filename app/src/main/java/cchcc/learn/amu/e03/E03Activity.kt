@@ -1,12 +1,12 @@
 package cchcc.learn.amu.e03
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.widget.Toast
 import cchcc.learn.amu.R
 import cchcc.learn.amu.databinding.ActivityE03Binding
@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_e03.*
 class E03Activity : AppCompatActivity() {
 
     private val viewModel: E03ViewModel by lazy { ViewModelProviders.of(this).get(E03ViewModel::class.java) }
-    private val adapter: RecyclerView.Adapter<E03MemoAdapter.VH> by lazy { E03MemoAdapter(viewModel.memos.value!!, viewModel::remove) }
+    private val adapter: androidx.recyclerview.widget.RecyclerView.Adapter<E03MemoAdapter.VH> by lazy { E03MemoAdapter(viewModel.memos.value!!, viewModel::remove) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +34,7 @@ class E03Activity : AppCompatActivity() {
 
         rcv_contents.let {
             it.adapter = adapter
-            it.layoutManager = LinearLayoutManager(this)
+            it.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         }
     }
 
