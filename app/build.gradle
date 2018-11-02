@@ -49,11 +49,11 @@ dependencies {
     testImplementation "io.mockk:mockk:$mock_version"
     androidTestImplementation "io.mockk:mockk-android:$mock_version"
 
-    def espresso_version = "3.1.0-alpha4"
+    def espresso_version = "3.1.0"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
 
-    def support_test_version = "1.1.0-alpha4"
+    def support_test_version = "1.1.0"
     androidTestImplementation "androidx.test:runner:$support_test_version"
     androidTestImplementation "androidx.test:rules:$support_test_version"
 
@@ -66,7 +66,7 @@ dependencies {
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
     implementation "org.kodein.di:kodein-di-framework-android:$kodein_version"
 
-    def paging_version = "2.0.0-rc01"
+    def paging_version = "2.0.0"
     implementation "androidx.paging:paging-runtime:$paging_version"
     testImplementation "androidx.paging:paging-common:$paging_version"
 }
