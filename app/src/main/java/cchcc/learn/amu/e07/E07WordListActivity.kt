@@ -4,12 +4,13 @@ import androidx.lifecycle.ViewModelProviders
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import android.transition.Fade
 import android.transition.Slide
 import android.transition.TransitionSet
 import android.view.View
 import android.widget.TextView
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
 import cchcc.learn.amu.R
 import cchcc.learn.amu.e07.coordinator.E07NavigatorImpl
 import kotlinx.android.synthetic.main.activity_e07_wordlist.*
@@ -38,7 +39,7 @@ class E07WordListActivity : AppCompatActivity() {
             }
         }
 
-        val adapter = E07WordListAdapter(::goDetail)
+        val adapter = E07WordListAdapter(::goWordScreen)
 
         rcv_list.let {
             it.layoutManager = androidx.recyclerview.widget.GridLayoutManager(this, 2)
@@ -48,9 +49,21 @@ class E07WordListActivity : AppCompatActivity() {
         viewModel.wordList.observe(this::getLifecycle, adapter::submitList)
     }
 
-    private fun goDetail(text: String, sharedElement: View) {
+    private fun goWordScreen(text: String, sharedElement: View) {
         val startSize = (sharedElement as TextView).textSize
-        navigator.navOptionsWord = Triple(sharedElement, text, startSize)
-        viewModel.goWordScreen()
+        val transitionName = ViewCompat.getTransitionName(sharedElement)!!
+
+        val extras = Bundle().apply {
+            putString("text", text)
+            putString("transitionName", transitionName)
+            putFloat("startSize", startSize)
+        }
+
+        val bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(this, sharedElement, transitionName)
+                .toBundle()
+
+        val args = mapOf("extras" to extras, "bundle" to bundle)
+
+        viewModel.goWordScreen { args }
     }
 }

@@ -9,8 +9,8 @@ class E07WordListViewModel(val coordinator: E07WordListCoordinator) : ViewModel(
         value = sampleText.split(" ")
     }
 
-    fun goWordScreen() {
-        coordinator.goWordScreen()
+    fun <T> goWordScreen(getArgs: () -> Map<String, T>) {
+        coordinator.goWordScreen(getArgs())
     }
 
     override fun onCleared() {
