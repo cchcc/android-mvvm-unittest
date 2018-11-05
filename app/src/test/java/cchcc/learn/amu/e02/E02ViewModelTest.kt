@@ -12,7 +12,7 @@ class E02ViewModelTest {
 
     @Test
     fun tryResult_and_applyScore() {
-        val viewModel = E02ViewModel(E02::justTrue)
+        val viewModel = E02ViewModel(E02Test::justTrue)
 
         // given
         // none

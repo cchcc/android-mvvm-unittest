@@ -12,7 +12,7 @@ import org.kodein.di.generic.provider
 import org.kodein.di.generic.singleton
 import java.util.*
 
-val E02aViewModelModule = Kodein.Module {
+val E02aViewModelModule = Kodein.Module("E02ViewModel") {
     bind<() -> Boolean>() with singleton {
         val r = Random()
         val nextBoolean: () -> Boolean = {
@@ -23,7 +23,7 @@ val E02aViewModelModule = Kodein.Module {
     }
 }
 
-val E02aFragmentModule = Kodein.Module {
+val E02aFragmentModule = Kodein.Module("E02Fragment") {
     bind<ViewModelProvider.Factory>() with singleton {
         E02aViewModelFactory()
     }

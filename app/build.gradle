@@ -62,9 +62,9 @@ dependencies {
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
 
-    def kodein_version = "5.0.0"
+    def kodein_version = "5.3.0"
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
-    implementation "org.kodein.di:kodein-di-framework-android:$kodein_version"
+    implementation "org.kodein.di:kodein-di-framework-android-x:$kodein_version"
 
     def paging_version = "2.0.0"
     implementation "androidx.paging:paging-runtime:$paging_version"
