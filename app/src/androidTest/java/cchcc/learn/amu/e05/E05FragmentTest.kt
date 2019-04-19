@@ -3,12 +3,11 @@ package cchcc.learn.amu.e05
 import androidx.lifecycle.Observer
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.internal.runner.junit4.statement.UiThreadStatement
 import androidx.test.rule.ActivityTestRule
-import androidx.test.runner.AndroidJUnit4
 import cchcc.learn.amu.FragmentTestActivity
 import cchcc.learn.amu.R
-import cchcc.learn.amu.e02.E02
 import cchcc.learn.amu.e02.E02ViewModel
 import cchcc.learn.amu.util.ViewActionsEx
 import cchcc.learn.amu.util.ViewAssertionsEx
@@ -26,10 +25,12 @@ class E05FragmentTest {
     lateinit var fragment: E05Fragment
     lateinit var viewModel: E02ViewModel
 
+    private fun justTrue() = true
+
     @Before
     fun setFragment() {
         UiThreadStatement.runOnUiThread {
-            viewModel = E02ViewModel(E02::justTrue)
+            viewModel = E02ViewModel(::justTrue)
             fragment = E05Fragment.newInstance { viewModel }
             rule.activity.replaceFragment(fragment)
         }

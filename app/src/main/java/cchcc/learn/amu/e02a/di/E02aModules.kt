@@ -28,6 +28,6 @@ val E02aFragmentModule = Kodein.Module("E02Fragment") {
         E02aViewModelFactory()
     }
     bind<E02ViewModel>() with provider {
-        ViewModelProviders.of(receiver as androidx.fragment.app.Fragment, instance()).get(E02ViewModel::class.java)
+        ViewModelProviders.of(context as Fragment, instance()).get(E02ViewModel::class.java)
     }
 }

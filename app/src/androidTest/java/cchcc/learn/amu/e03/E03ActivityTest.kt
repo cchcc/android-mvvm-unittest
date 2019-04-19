@@ -8,11 +8,11 @@ import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
-import androidx.test.runner.AndroidJUnit4
 import android.view.View
 import android.view.ViewConfiguration
 import android.widget.EditText
 import android.widget.TextView
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import cchcc.learn.amu.R
 import cchcc.learn.amu.util.ViewActionsEx
 import org.hamcrest.Matcher

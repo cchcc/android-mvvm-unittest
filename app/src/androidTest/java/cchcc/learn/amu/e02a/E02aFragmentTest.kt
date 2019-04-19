@@ -1,13 +1,11 @@
 package cchcc.learn.amu.e02a
 
 import androidx.test.espresso.Espresso
-import androidx.test.espresso.UiController
-import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
-import androidx.test.runner.AndroidJUnit4
 import cchcc.learn.amu.FragmentTestActivity
 import cchcc.learn.amu.R
 import cchcc.learn.amu.e02a.di.E02aTestFragmentModule

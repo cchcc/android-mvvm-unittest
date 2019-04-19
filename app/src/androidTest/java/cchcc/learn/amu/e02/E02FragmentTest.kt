@@ -6,8 +6,8 @@ import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
-import androidx.test.runner.AndroidJUnit4
 import cchcc.learn.amu.FragmentTestActivity
 import cchcc.learn.amu.R
 import cchcc.learn.amu.util.ViewActionsEx
@@ -21,6 +21,8 @@ class E02FragmentTest {
     @get:Rule
     val rule = object : ActivityTestRule<FragmentTestActivity>(FragmentTestActivity::class.java) {}
 
+    private fun justTrue() = true
+
     @Before
     fun setFragment() {
 
@@ -28,7 +30,7 @@ class E02FragmentTest {
         val createVMFactory = {
             object : ViewModelProvider.Factory {
                 @Suppress("UNCHECKED_CAST")
-                override fun <T : ViewModel?> create(modelClass: Class<T>): T = E02ViewModel(E02::justTrue).apply {
+                override fun <T : ViewModel?> create(modelClass: Class<T>): T = E02ViewModel(::justTrue).apply {
                     speedOfAnim.value = 10.0f
                 } as T
             }
