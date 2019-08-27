@@ -33,17 +33,17 @@ class E04Activity : AppCompatActivity() {
 
                 val intent = Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI)
                 startActivityWithResult(intent) { resultCode, data ->
-                    if (resultCode == Activity.RESULT_OK) {
+                    if (resultCode == Activity.RESULT_OK && data?.data != null) {
 
-                        val cursor = contentResolver.query(data!!.data, null, null, null, null)
-                        val nameAndPhone = cursor.use {
+                        val cursor = contentResolver.query(data.data!!, null, null, null, null)
+                        val nameAndPhone = cursor?.use {
                             it.moveToFirst()
 
                             val name = it.getString(it.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME))
                             val phone = it.getString(it.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.DATA))
 
                             name to phone
-                        }
+                        } ?: "" to ""
 
                         viewModel.nameAndPhone.value = nameAndPhone
                     }
